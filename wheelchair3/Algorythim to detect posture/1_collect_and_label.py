@@ -46,7 +46,13 @@ def collect(class_index):
 
     # Open the serial connection
     print("Collecting data for posture " + CLASSES[class_index])
-    ser = open_serial()
+    # Start reading the serial port
+    ser = serial.Serial(
+        port = os.environ['SERIAL'],
+        baudrate = 115200,
+        timeout = 2)
+
+    # ser = open_serial()
 
     # Start reading serial port with the posture index, start at sample 0.
     sample = 0
@@ -72,6 +78,7 @@ def open_serial():
 def serial_to_property_values(class_index, ser):
     # Read one line
     line_bytes = ser.readline()
+    print(line_bytes)
     # If the line is not empty
     if len(line_bytes) > 0:
         # Convert the bytes into string
