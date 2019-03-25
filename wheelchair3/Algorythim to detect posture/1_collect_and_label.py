@@ -23,7 +23,7 @@ THING_TOKEN = os.environ['THING_TOKEN']
 
 CLASSES = ["Not Sitting", "Proper Sitting"]
 
-LABEL_PROP_NAME = "dhaval"
+LABEL_PROP_NAME = "Yoga Wheelchair"
 DATA_PROP_NAME = "fsr"
 
 # How many samples do we want for each class
