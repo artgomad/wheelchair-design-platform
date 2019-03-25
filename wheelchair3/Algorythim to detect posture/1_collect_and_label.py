@@ -59,7 +59,7 @@ def collect(class_index):
     while sample < MAX_SAMPLES:
         if serial_to_property_values(class_index, ser):
             sample += 1
-            print()
+            print(sample)
     ser.close()
     collect(class_index + 1)
 
