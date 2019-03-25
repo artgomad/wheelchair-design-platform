@@ -24,7 +24,7 @@ THING_TOKEN = os.environ['THING_TOKEN']
 CLASSES = ["Not Sitting", "Proper Sitting"]
 
 LABEL_PROP_NAME = "Yoga Wheelchair"
-DATA_PROP_NAME = "fsr"
+DATA_PROP_NAME = "fsrYoga"
 
 # How many samples do we want for each class
 MAX_SAMPLES = 2000
@@ -115,7 +115,8 @@ prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLAS
 if prop_label.classes is None or len(prop_label.classes) == 0:
     prop_label.create_classes(CLASSES)
 
-prop_data = my_thing.find_or_create_property(DATA_PROP_NAME, PropertyType.NINE_DIMENSIONS)
+prop_data = my_thing.find_or_create_property(DATA_PROP_NAME,
+                PropertyType.NINE_DIMENSIONS)
 
 
 # Start collecting data for the first class
