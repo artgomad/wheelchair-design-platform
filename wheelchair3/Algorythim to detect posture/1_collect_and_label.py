@@ -17,8 +17,11 @@ THING_ID = os.environ['THING_ID']
 THING_TOKEN = os.environ['THING_TOKEN']
 
 # Sitting classes
-CLASSES = ["Not Sitting", "Proper Sitting", "Leaning Forward",
-           "Leaning Backward", "Leaning Left", "Leaning Right"]
+
+# CLASSES = ["Not Sitting", "Proper Sitting", "Leaning Forward",
+#           "Leaning Backward", "Leaning Left", "Leaning Right"]
+
+CLASSES = ["Not Sitting", "Proper Sitting"]
 
 LABEL_PROP_NAME = "dhaval"
 DATA_PROP_NAME = "fsr"
