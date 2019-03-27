@@ -6,9 +6,9 @@ import pyaudio
 import wave
 import time
 
-# file: absolute path to WAV file to play
-# duration: number of seconds to play in seconds
-def play_sound(Macintosh HD⁩/Usuarios⁩/cristinamorales⁩/Descargas⁩, 5):
+file = ("/Macintosh-HD/Usuarios⁩/cristinamorales⁩/wheelchair-design-platform⁩/docs⁩/⁨workshops⁩/audios⁩/audioexample1.WAV")
+duration = 5
+def play_sound(‎⁨‎file, duration):
     CHUNK = 1024
 
     # Load the WAV file
