@@ -8,7 +8,7 @@ import time
 
 # file: absolute path to WAV file to play
 # duration: number of seconds to play in seconds
-def play_sound(file, duration):
+def play_sound(Macintosh HD⁩/Usuarios⁩/cristinamorales⁩/Descargas⁩, 5):
     CHUNK = 1024
 
     # Load the WAV file
