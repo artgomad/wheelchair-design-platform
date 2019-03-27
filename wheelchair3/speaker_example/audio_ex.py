@@ -6,8 +6,8 @@ import pyaudio
 import wave
 import time
 
-file = ("/Macintosh-HD/Usuarios⁩/cristinamorales⁩/wheelchair-design-platform⁩/docs⁩/⁨workshops⁩/audios⁩/audioexample1.WAV")
-duration = 5
+# file = ("/Macintosh-HD/Usuarios⁩/cristinamorales⁩/wheelchair-design-platform⁩/docs⁩/⁨workshops⁩/audios⁩/audioexample1.WAV")
+# duration = 5
 def play_sound(‎⁨‎file, duration):
     CHUNK = 1024
 
@@ -36,4 +36,4 @@ def play_sound(‎⁨‎file, duration):
 
     p.terminate()
 
-play_sound('/Users/jbourgeois/Desktop/Bass-loops_www.orangefreesounds.com/01-Bass-Loop-110-bpm.wav', 1)
+play_sound('/Macintosh-HD/Usuarios⁩/cristinamorales⁩/wheelchair-design-platform⁩/docs⁩/⁨workshops⁩/audios⁩/audioexample1.WAV', 5)
