@@ -6,4 +6,3 @@ requests
 firebase_admin
 pyaudio
 wave
-time
