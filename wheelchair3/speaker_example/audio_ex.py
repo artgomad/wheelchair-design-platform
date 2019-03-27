@@ -8,7 +8,7 @@ import time
 
 # file = ("/Macintosh-HD/Usuarios⁩/cristinamorales⁩/wheelchair-design-platform⁩/docs⁩/⁨workshops⁩/audios⁩/audioexample1.WAV")
 # duration = 5
-def play_sound(‎⁨‎file, duration):
+def play_sound(file, duration):
     CHUNK = 1024
 
     # Load the WAV file
