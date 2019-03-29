@@ -20,10 +20,27 @@
 
 #include "BluefruitConfig.h"
 
-#include <Adafruit_NeoPixel.h> 
+//#include <Adafruit_NeoPixel.h> 
 
 #if SOFTWARE_SERIAL_AVAILABLE
   #include <SoftwareSerial.h>
+#endif
+
+#include <FastLED.h>
+
+FASTLED_USING_NAMESPACE
+
+// FastLED "100-lines-of-code" demo reel, showing just a few 
+// of the kinds of animation patterns you can quickly and easily 
+// compose using FastLED.  
+//
+// This example also shows one easy way to define multiple 
+// animations patterns and have them automatically rotate.
+//
+// -Mark Kriegsman, December 2014
+
+#if defined(FASTLED_VERSION) && (FASTLED_VERSION < 3001000)
+#warning "Requires FastLED 3.1 or later; check github for latest code."
 #endif
 
 /* This example demonstrates how to use Bluefruit callback API :
@@ -48,11 +65,19 @@ Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_
 // Writable GATT Service
 int32_t charid_led;
 
+
 // Neo Pixel
-#define LED_PIN 6
-#define NUM_LEDS 10
-Adafruit_NeoPixel LED_controller = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_RGB + NEO_KHZ800); 
-uint8_t R = 0, G = 0, B = 0;
+#define DATA_PIN_leds 5
+#define NUM_LEDS 16
+#define LED_TYPE    WS2811
+//#define LED_TYPE    WS2813
+#define COLOR_ORDER GRB
+#define BRIGHTNESS 60
+#define FRAMES_PER_SECOND  100
+
+CRGB leds[NUM_LEDS];
+//Adafruit_NeoPixel leds = Adafruit_NeoPixel(NUM_LEDS, DATA_PIN_leds, NEO_RGB + NEO_KHZ800); 
+//uint8_t R = 0, G = 0, B = 0;
 
 //Vibrator motor
 #define VIB_PIN 10
@@ -73,6 +98,7 @@ void disconnected(void) {
   Serial.println( F("Disconnected") );
 }
 
+int behaviour = 0;
 // What to do when a Bluetooth device writes on a GATT characteristic
 void BleGattRX(int32_t chars_id, uint8_t data[], uint16_t len) {
   Serial.print( F("[BLE GATT RX] (" ) );
@@ -101,23 +127,10 @@ void BleGattRX(int32_t chars_id, uint8_t data[], uint16_t len) {
     //Serial.println(data[2], DEC);
     
 
-    int behaviour = (int)data[0];
-
-    switch (behaviour){
-      case 1://start audio
-        respiration();
-        break;
-      /*case 2:
-        decreaseVibrationLeft();
-        break;
-        */
-      default:
-        off();
-        break;
-    }
+    behaviour = (int)data[0];
   }
 }
-int counter = 0;
+long counter = 0;
 int vibrationValue = 10;
 int vibrationDirection = 1; 
 int lightValue=0;
@@ -127,8 +140,9 @@ void startVibrationLeft(){
   vibrationValue = 200;
   analogWrite(VIB_PIN, vibrationValue);
   for (int i=0;i<NUM_LEDS;i++){
-     LED_controller.setPixelColor( i, LED_controller.Color( 255, 0, 0 ) );
-     LED_controller.show();
+     //leds.setPixelColor( i, leds.Color( 255, 0, 0 ) );
+     leds[i] = CHSV( 100, 200, i);
+     //FastLED.show();
   }
 }
 
@@ -138,35 +152,73 @@ void respiration(){
   Serial.print(";   lightValue = ");
   Serial.println(lightValue);
   
-  if (vibrationValue >= 200 || vibrationValue <= 0){//max vibration || min vibration
-      vibrationDirection = -vibrationDirection;
-    };
+  if (vibrationValue >= 200){//max vibration || min vibration
+      vibrationValue = 200;
+      vibrationDirection = -1;
+  }else if(vibrationValue <= 0){
+      vibrationValue = 0;
+      vibrationDirection = 1;
+  }
 
-  if (millis() - counter > 1){//delay between increasing or decreasing vibration   
-    vibrationValue = vibrationValue + 10*vibrationDirection;
+  if (millis() - counter > 80){//delay between increasing or decreasing vibration   
     
+    vibrationValue = vibrationValue + 5*vibrationDirection;
     analogWrite(VIB_PIN, vibrationValue);
     
     lightValue=map(vibrationValue,0,200,0,100);
     
     for (int i=0;i<NUM_LEDS;i++){
-       LED_controller.setPixelColor( i, LED_controller.Color( lightValue, 0, 0 ) );
+       leds[i] = CHSV( 100, 200, lightValue);
     }
-    LED_controller.show();
-    counter = millis();
+
+    
+    
+    counter = millis();  
   }
+   //FastLED.delay(1000/FRAMES_PER_SECOND);
+   //FastLED.show();
+}
+int ledNumber=0;
+int ledOpuesto=NUM_LEDS-1;
+
+void respiration_2(){
+    
+   if (ledNumber == NUM_LEDS/2 - 1 || ledNumber == 0){
+       vibrationDirection = -vibrationDirection;
+   }
+   if (vibrationDirection == 1){
+    
+       leds[ledNumber] = CRGB::Blue;
+       leds[ledOpuesto] = CRGB::Blue;
+       //FastLED.show(); 
+       //delay(60);
+       
+   }else if (vibrationDirection == -1){
+       
+       leds[ledNumber] = CRGB::Black;
+       leds[ledOpuesto] = CRGB::Black;
+       //FastLED.show();
+       //delay(60); 
+   }   
+    
+   ledNumber = ledNumber + vibrationDirection;
+   ledOpuesto = NUM_LEDS - (1+ledNumber);
 }
 
 void off(){
    
    analogWrite(VIB_PIN, 0);
+   /*
    for (int i=0;i<NUM_LEDS;i++){
-           LED_controller.setPixelColor( i, LED_controller.Color( 0, 0, 0 ) );
+           leds.setPixelColor( i, leds.Color( 0, 0, 0 ) );
            Serial.print("led ");
            Serial.print(i);
            Serial.println(" off");
         }
-   LED_controller.show();
+   */
+   fadeToBlackBy( leds, NUM_LEDS, 255);
+   Serial.println("off() function triggered");
+   FastLED.show();
 }
 
 
@@ -186,13 +238,17 @@ void decreaseVibrationLeft(){
 
 void setup(void) {
   
-  LED_controller.begin(); // We're starting up the library
-
   pinMode(VIB_PIN, OUTPUT);
-  pinMode(LED_PIN, OUTPUT);
+  pinMode(DATA_PIN_leds, OUTPUT); 
   
-  //LED_controller.setPixelColor( 0, LED_controller.Color( 0, 150, 0 ) );
-  //LED_controller.show();
+  FastLED.addLeds<LED_TYPE,DATA_PIN_leds,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+  //leds.begin(); // We're starting up the library
+
+  // set master brightness control
+  FastLED.setBrightness(BRIGHTNESS);
+  
+  //leds.setPixelColor( 0, leds.Color( 0, 150, 0 ) );
+  //FastLED.show();
   off();
 
   delay(500);
@@ -239,8 +295,38 @@ void setup(void) {
   
 }
 
+long count = 0;
+
+void showleds(){
+  if (millis() - count > 1){
+    FastLED.show();
+    Serial.println ("show leds!!");
+    count = millis();
+  };
+}
+
 void loop(void) {
+   
   // Check every 200ms for new command receive from Bluetooth
   ble.update(200);
+  switch (behaviour){
+      case 1://start audio
+        //off();
+        respiration();
+        //respiration_2();
+        break;
+      /*case 2:
+        decreaseVibrationLeft();
+        break;
+        */
+      default:
+        //respiration();
+        Serial.println("default");
+        off();
+        break;
+    }
+  
+   showleds();
+
 }
 
