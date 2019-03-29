@@ -148,6 +148,7 @@ fsr = my_thing.find_property_by_name(PROPERTY_DATA)
 fsr.read(START_TS, END_TS)
 
 sitting = my_thing.find_property_by_name(PROPERTY_LABEL)
+print("Sitting is the following:  " + sitting + "and his type is" + sitting.PropertyType)
 sitting.read(START_TS, END_TS)
 
 classes = []
