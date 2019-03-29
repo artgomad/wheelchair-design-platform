@@ -84,6 +84,7 @@ def serial_to_property_values():
             str_values = line.split('B')
             fsrString_values = str_values.pop(0)
             button_value = str_values.pop(0)
+            prev_button_value = 0
 
             fsrValues = fsrString_values.split(',')
 
@@ -92,8 +93,16 @@ def serial_to_property_values():
             np.array(values).reshape(1, -1)
             predict(values)
 
+            if button_value != prev_button_value and button_value == 1:
+                print("Start the Yoga session")
+                play_sound('/Users/cristinamorales/wheelchair-design-platform/docs/workshops/audios/example.wav', 17)
+                prev_button_value = button_value
+
             # Writes the button value in the BUTTON GATT CHARACTERISTIC
             my_device.char_write(GATT_CHARACTERISTIC_BUTTON, button_value)
+
+
+
 
         except:
             ("cant parse ")
