@@ -78,15 +78,25 @@ def serial_to_property_values():
     line_bytes = ser.readline()
     # If the line is not empty
     if len(line_bytes) > 0:
-        # Convert the bytes into string
-        line = line_bytes.decode('utf-8')
-        str_values = line.split(',')
-        if len(str_values) > 1:
-            str_values.pop(0)
-            values = [float(x) for x in str_values]
+        try:
+            # Convert the bytes into string
+            line = line_bytes.decode('utf-8')
+            str_values = line.split('B')
+            fsrString_values = str_values.pop(0)
+            button_value = str_values.pop(0)
+
+            fsrValues = fsrString_values.split(',')
+
+            values = [float(x) for x in fsrValues]
             values = [values]
             np.array(values).reshape(1, -1)
             predict(values)
+
+            # Writes the button value in the BUTTON GATT CHARACTERISTIC
+            my_device.char_write(GATT_CHARACTERISTIC_BUTTON, button_value)
+
+        except:
+            ("cant parse ")
 
 def play_sound(file, duration):
     CHUNK = 1024
@@ -108,7 +118,7 @@ def play_sound(file, duration):
     while data != '' and play:
         stream.write(data)
         data = wf.readframes(CHUNK)
-        if time.time()-start_time>duration:
+        if time.time()-start_time > duration:
             play = False
 
     stream.stop_stream()
