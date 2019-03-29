@@ -16,7 +16,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.feature_selection import VarianceThreshold
 import pandas as pd
-import numpy
+import numpy as np
 
 # Import library to generate model
 import pickle
@@ -73,7 +73,7 @@ def find_correlation(df, thresh=0.9):
     for col in corrMatrix:
         perfect_corr = corrMatrix[col][corrMatrix[col] > thresh].index.tolist()
         if perfect_corr and col not in already_in:
-            already_in.update(set(perfect_corr))
+            already_in.uate(set(perfect_corr))
             perfect_corr.append(col)
             result.append(perfect_corr)
 
@@ -234,14 +234,14 @@ neigh.fit(train_data, train_label)
 
 # Use the test data to evaluate the algorithm
 predicted = neigh.predict(cv_data)
-cvLabel = numpy.array(cv_label)
+cvLabel = np.array(cv_label)
 result = accuracy_score(cvLabel, predicted)
 print("cv accuracy: {}".format(result))
 
 if result > 0.8:
     print("Validation passed. Displaying testing performance")
     predicted = neigh.predict(test_data)
-    testLabel = numpy.array(test_label)
+    testLabel = np.array(test_label)
     result = accuracy_score(testLabel, predicted)
     print("test accuracy: {}".format(result))
 
