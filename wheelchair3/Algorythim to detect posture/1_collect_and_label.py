@@ -98,6 +98,7 @@ def serial_to_property_values(class_index, ser):
         # Update values of data and label properties (send them to the DCD Hub)
         # With the same timestamp, so we can easily connect label and raw data later
         prop_label.update_values([class_index], current_ts_ms)
+        print(str(values))
         prop_data.update_values(values, current_ts_ms)
 
         return True
