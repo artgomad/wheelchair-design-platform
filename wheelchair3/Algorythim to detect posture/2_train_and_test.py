@@ -32,8 +32,8 @@ THING_TOKEN = os.environ['THING_TOKEN']
 MODEL_FILE_NAME = "model.pickle"
 
 # Data collection time frame (in milliseconds)
-START_TS = 1554112380
-END_TS = 1554112380+10800
+START_TS = 1554112440000
+END_TS = 1554112440000+10800
 
 # Property ID
 PROPERTY_DATA = "fsryoga-ea9c"
