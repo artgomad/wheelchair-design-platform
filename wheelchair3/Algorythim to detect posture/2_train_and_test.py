@@ -245,6 +245,7 @@ if result > 0.8:
     testLabel = numpy.array(test_label)
     result = accuracy_score(testLabel, predicted)
     print("test accuracy: {}".format(result))
+    print(classes)
 
     # Report evaluation Confusion matrix
     generate_confusion_matrix(testLabel)
