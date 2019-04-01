@@ -90,7 +90,7 @@ def serial_to_property_values(class_index, ser):
         str_values = line.split(',B')[0].split(',')
 
         # Remove the first id
-        str_values.pop(0)
+        #str_values.pop(0)
         # Transform the array of string values into float values (numbers)
         values = [float(x) for x in str_values]
 
