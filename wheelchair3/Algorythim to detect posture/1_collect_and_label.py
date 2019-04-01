@@ -79,20 +79,27 @@ def serial_to_property_values(class_index, ser):
     # Read one line
     line_bytes = ser.readline()
     print(line_bytes)
-    # If the line is not empty
-    if len(line_bytes) > 0:
+    print(len(line_bytes))
+    # If the line is not incomplete (the supose amount of bits needed is 23)
+    if len(line_bytes) > 22:
         # Convert the bytes into string
         try:
             line = line_bytes.decode('utf-8')
+
         except UnicodeDecodeError:
-            line = "0,0,0,0,0,0,0,0,0"
+                    line = "0,0,0,0,0,0,0,0,0"
+
         # Split the string using commas as separator, we get a list of strings
         str_values = line.split(',B')[0].split(',')
-        print(str(str_values))
-        # Remove the first id
-        str_values.pop(0)
+
+        # Remove the second part
+        # str_values.pop(1)
         # Transform the array of string values into float values (numbers)
+        print(str_values)
+
         values = [float(x) for x in str_values]
+
+
 
         # get the current time in milliseconds
         current_ts_ms = int(round(time.time() * 1000))
