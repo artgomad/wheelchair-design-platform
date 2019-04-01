@@ -44,9 +44,10 @@ def serial_to_property_values():
         print(str_values)
 
         values = [float(x) for x in str_values]
-        
+
         values = [values]
         np.array(values).reshape(1, -1)
         predict(values)
 
-serial_to_property_values()
+while True:
+    serial_to_property_values()
