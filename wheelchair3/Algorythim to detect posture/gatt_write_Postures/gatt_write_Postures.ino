@@ -202,22 +202,22 @@ void loop(void) {
   
   switch (currentPosture){
       case 0://start audio
-        respiration();
+        showImage();
         break;
       case 1://start audio
-        respiration();
+        showImage();
         break;
       case 2://start audio
-        respiration();
+        showImage();
         break;
       case 3://start audio
-        respiration();
+        showImage();
         break;
       case 4://start audio
-        respiration();
+        showImage();
         break;
       case 5://start audio
-        respiration();
+        showImage();
         break;
       default:
         Serial.println("default");
@@ -237,6 +237,11 @@ void off(){
    fadeToBlackBy( leds, NUM_LEDS, 255);
    Serial.println("off() function triggered");
    FastLED.show();
+}
+
+
+void showImage(string image1, string image2, string image3){
+  
 }
 
 void respiration(){
