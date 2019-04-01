@@ -144,12 +144,12 @@ def generate_confusion_matrix(labels):
 # it has only an id, a name and a type.
 # print(my_thing.to_json())
 
-fsr = my_thing.find_property_by_name(PROPERTY_DATA)
+fsr = my_thing.find_property_by_name("fsrYoga")
 print ("this is the fsr thingy: ")
 print (fsr)
 fsr.read(START_TS, END_TS)
 
-sitting = my_thing.find_property_by_name(PROPERTY_LABEL)
+sitting = my_thing.find_property_by_name("Yoga Wheelchair")
 sitting.read(START_TS, END_TS)
 
 classes = []
