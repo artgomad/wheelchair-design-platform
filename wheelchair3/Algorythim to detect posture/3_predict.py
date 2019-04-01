@@ -37,7 +37,7 @@ def serial_to_property_values():
         try:
             line = line_bytes.decode('utf-8')
         except:
-            line = "0,0,0,0,0,0,0,0,0"
+            line = "0,0,0,0,0,0,0,0,0,B,0"
 
         # Split the string using commas as separator, we get a list of strings
         str_values = line.split(',B')[0].split(',')
