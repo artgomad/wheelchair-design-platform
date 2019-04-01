@@ -32,8 +32,8 @@ THING_TOKEN = os.environ['THING_TOKEN']
 MODEL_FILE_NAME = "model.pickle"
 
 # Data collection time frame (in milliseconds)
-START_TS = 1553276760000
-END_TS = 1553276760000+300000
+START_TS = 1554112380
+END_TS = 1554112380+10800
 
 # Property ID
 PROPERTY_DATA = "fsryoga-ea9c"
@@ -65,7 +65,7 @@ def find_correlation(df, thresh=0.9):
     """
 
     corrMatrix = df.corr()
-    corrMatrix.loc[:,:] =  np.tril(corrMatrix, k=-1)
+    corrMatrix.loc[:,:] = numpy.tril(corrMatrix, k=-1)
 
     already_in = set()
     result = []
