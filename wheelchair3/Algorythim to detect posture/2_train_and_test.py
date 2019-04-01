@@ -151,6 +151,8 @@ fsr.read(START_TS, END_TS)
 sitting = my_thing.find_property_by_name("Yoga Wheelchair")
 sitting.read(START_TS, END_TS)
 
+sitting.align_values_to(fsr)
+
 classes = []
 for clazz in sitting.classes:
     classes.append(clazz['name'])
