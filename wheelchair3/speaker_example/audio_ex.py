@@ -36,4 +36,4 @@ def play_sound(file, duration):
 
     p.terminate()
 
-play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 47)
+play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10)
