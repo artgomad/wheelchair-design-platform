@@ -86,12 +86,11 @@ def serial_to_property_values(class_index, ser):
             line = line_bytes.decode('utf-8')
         except UnicodeDecodeError:
             line = "0,0,0,0,0,0,0,0,0"
-            return False
         # Split the string using commas as separator, we get a list of strings
         str_values = line.split(',B')[0].split(',')
         print(str(str_values))
         # Remove the first id
-        # str_values.pop(0)
+        str_values.pop(0)
         # Transform the array of string values into float values (numbers)
         values = [float(x) for x in str_values]
 
@@ -100,7 +99,6 @@ def serial_to_property_values(class_index, ser):
         # Update values of data and label properties (send them to the DCD Hub)
         # With the same timestamp, so we can easily connect label and raw data later
         prop_label.update_values([class_index], current_ts_ms)
-        print(str(values))
         prop_data.update_values(values, current_ts_ms)
 
         return True
