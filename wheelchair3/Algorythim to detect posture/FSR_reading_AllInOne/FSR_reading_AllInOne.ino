@@ -56,10 +56,9 @@ void loop(void) {
 //    Serial.print(" ,");
     }
   }
-  Serial.println("");
 
   //Serial.print(",Button");
-  Serial.print(",B");
+  Serial.print(",B,");
   Serial.println(state);
 
   digitalWrite(outPinL, state);
