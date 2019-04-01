@@ -218,7 +218,11 @@ print(test_data)
 # Apply dimensionality reduction. Choose only one of the below lines at one time.
 # train_data, cv_data, test_data = pca(train_data, cv_data, test_data)
 # train_data = pca(train_data, cv_data, test_data)
+<<<<<<< HEAD
 # train_data= variance(train_data, cv_data, test_data)
+=======
+train_data= variance(train_data, cv_data, test_data)
+>>>>>>> e216d6adf5618ccfaeb4e826c0d6a7efc3739b3f
 
 print(train_data)
 
