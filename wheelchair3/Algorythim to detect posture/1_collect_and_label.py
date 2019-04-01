@@ -80,8 +80,8 @@ def serial_to_property_values(class_index, ser):
     line_bytes = ser.readline()
     print(line_bytes)
     print(len(line_bytes))
-    # If the line is not empty
-    if len(line_bytes) > 0:
+    # If the line is not incomplete (the supose amount of bits needed is 23)
+    if len(line_bytes) > 20:
         # Convert the bytes into string
         try:
             line = line_bytes.decode('utf-8')
