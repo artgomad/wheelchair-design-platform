@@ -86,6 +86,7 @@ def serial_to_property_values(class_index, ser):
             line = line_bytes.decode('utf-8')
         except UnicodeDecodeError:
             line = "0,0,0,0,0,0,0,0,0"
+            return False
         # Split the string using commas as separator, we get a list of strings
         str_values = line.split(',')
         # Remove the first id
