@@ -145,8 +145,7 @@ def generate_confusion_matrix(labels):
 # print(my_thing.to_json())
 
 fsr = my_thing.find_property_by_name("fsrYoga")
-print ("this is the fsr thingy: ")
-print (fsr)
+print ("this is the fsr thingy: " + fsr)
 fsr.read(START_TS, END_TS)
 
 sitting = my_thing.find_property_by_name("Yoga Wheelchair")
