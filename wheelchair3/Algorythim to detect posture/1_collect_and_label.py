@@ -91,9 +91,9 @@ def serial_to_property_values(class_index, ser):
             # Remove the first id
             #str_values.pop(0)
             # Transform the array of string values into float values (numbers)
+            print(str_values)
+            
             values = [float(x) for x in str_values]
-
-            print(str(values))
 
         except UnicodeDecodeError:
             line = "0,0,0,0,0,0,0,0,0"
