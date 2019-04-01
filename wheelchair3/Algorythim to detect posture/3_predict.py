@@ -27,6 +27,7 @@ ser = serial.Serial(
 def predict(values):
     result = neigh.predict(values)
     print(classes[result[0]])
+    print("result = " + str(result))
 
 # Real time prediction
 def serial_to_property_values():
