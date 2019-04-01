@@ -156,6 +156,7 @@ sitting.align_values_to(fsr)
 classes = []
 for clazz in sitting.classes:
     classes.append(clazz['name'])
+    print(clazz['name'])
 
 data = fsr.values
 label = sitting.values
@@ -209,20 +210,18 @@ for index in range(len(leftover_data)):
 # Check if data is being pulled from the hub
 
 print("TRAINING DATA")
-print(train_data)
+print(train_data[0])
 
 print("VALIDATION DATA")
-print(cv_data)
+print(cv_data[0])
 
 print("TESTING DATA")
-print(test_data)
+print(test_data[0])
 
 # Apply dimensionality reduction. Choose only one of the below lines at one time.
 # train_data, cv_data, test_data = pca(train_data, cv_data, test_data)
 # train_data = pca(train_data, cv_data, test_data)
 # train_data= variance(train_data, cv_data, test_data)
-
-print(train_data)
 
 # print(test_label)
 # print(label)
