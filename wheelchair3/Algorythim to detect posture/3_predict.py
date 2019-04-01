@@ -32,7 +32,7 @@ def predict(values):
 def serial_to_property_values():
     line_bytes = ser.readline()
     # If the line is not empty
-    if len(line_bytes) > 20:
+    if len(line_bytes) > 0:
         # Convert the bytes into string
         try:
             line = line_bytes.decode('utf-8')
@@ -48,6 +48,7 @@ def serial_to_property_values():
         values = [values]
         np.array(values).reshape(1, -1)
         predict(values)
+
 
 while True:
     serial_to_property_values()
