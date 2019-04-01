@@ -45,6 +45,9 @@ bleAdapter.start()
 # User the BLE adapter to connect to our device
 my_device = bleAdapter.connect(BLUETOOTH_DEVICE_MAC, address_type=ADDRESS_TYPE)
 
+def timer():
+   now = time.localtime(time.time())
+   return now[5]
 
 def discover_characteristic(device):
     for uuid in device.discover_characteristics().keys():
@@ -61,17 +64,35 @@ def sendByBluetooth(x):
 
 def audioList(x):
     return {
-        0: play_sound('/Users/cristinamorales/wheelchair-design-platform/docs/workshops/audios/example.wav', 17),
-        1: play_sound('/Users/cristinamorales/wheelchair-design-platform/docs/workshops/audios/example.wav', 17),
-    }.get(x, play_sound('/Users/cristinamorales/wheelchair-design-platform/docs/workshops/audios/example.wav', 17))
+        0: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10),
+        1: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10),
+    }.get(x, play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10))
 # If default it will play the last audio
+
+starttime = time.time()
+prevResult = 0
+counter = 0
 
 def predict(values):
     result = neigh.predict(values)
     print(classes[result[0]])
 
-    audioList(result)
-    sendByBluetooth(result)
+    if result == prevResult and result != 0:
+        counter = counter + 1
+        prevResult = result
+    else:
+        counter = 0
+        prevResult = result
+
+    if counter == 30:
+        audioList(result+1)
+        sendByBluetooth(result+1)
+        counter = 0
+
+    # Delay de un segundo
+    time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+    print("tick")
+
 
 # Real time prediction
 def serial_to_property_values():
@@ -93,9 +114,10 @@ def serial_to_property_values():
             np.array(values).reshape(1, -1)
             predict(values)
 
+            # If the start button is pressed for the first time
             if button_value != prev_button_value and button_value == 1:
                 print("Start the Yoga session")
-                play_sound('/Users/cristinamorales/wheelchair-design-platform/docs/workshops/audios/example.wav', 17)
+                play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10)
                 prev_button_value = button_value
 
             # Writes the button value in the BUTTON GATT CHARACTERISTIC
