@@ -33,7 +33,7 @@ MODEL_FILE_NAME = "model.pickle"
 
 # Data collection time frame (in milliseconds)
 START_TS = 1554112440000
-END_TS = 1554112440000+10800
+END_TS = 1554112440000+300000
 
 # Property ID
 PROPERTY_DATA = "fsryoga-ea9c"
