@@ -79,6 +79,8 @@ prevResult = 0
 counter = 0
 
 def predict(values):
+
+    print("Hello predict")
     result = neigh.predict(values)
     print(classes[result[0]])
 
@@ -89,7 +91,7 @@ def predict(values):
         counter = 0
         prevResult = result
 
-    if counter == 30:
+    if counter == 5:
         audioList(result+1)
         sendByBluetooth(result+1)
         counter = 0
