@@ -20,12 +20,13 @@ with open("model.pickle", 'rb') as file:
 # classes = ["Not Sitting", "Proper Sitting", "Leaning Forward",
 #           "Leaning Backward", "Leaning Left", "Leaning Right"]
 
-classes = ["Not Sitting", "Proper Sitting"]
+classes = ["Not Sitting", "Proper Sitting", "Leg Stretch Right",
+           "Leg Stretch Left", "Twist Right", "Twist Left", "Forward Bend"]
 
 # Read data from serial port
 ser = serial.Serial(
     port=os.environ['SERIAL'],
-    baudrate=9600,
+    baudrate=115200,
     timeout=2)
 
 
@@ -64,8 +65,12 @@ def sendByBluetooth(x):
 
 def audioList(x):
     return {
-        0: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10),
-        1: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10),
+        0: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/3_posture_1_right_side.wav', 10),
+        1: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/4_posture_1_left.wav', 10),
+        2: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/5_posture_2_side_1.wav', 10),
+        3: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/6_posture_2_side_2.wav', 10),
+        4: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/7_pose_3_down.wav', 10),
+        5: play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/8_back_to_comfortable_position.wav', 10),
     }.get(x, play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10))
 # If default it will play the last audio
 
@@ -98,7 +103,7 @@ def predict(values):
 def serial_to_property_values():
     line_bytes = ser.readline()
     # If the line is not empty
-    if len(line_bytes) > 0:
+    if len(line_bytes) > 20:
         try:
             # Convert the bytes into string
             line = line_bytes.decode('utf-8')
@@ -117,14 +122,10 @@ def serial_to_property_values():
             # If the start button is pressed for the first time
             if button_value != prev_button_value and button_value == 1:
                 print("Start the Yoga session")
-                play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10)
+                # Writes the button value in the BUTTON GATT CHARACTERISTIC
+                my_device.char_write(GATT_CHARACTERISTIC_BUTTON, button_value)
+                play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 10)
                 prev_button_value = button_value
-
-            # Writes the button value in the BUTTON GATT CHARACTERISTIC
-            my_device.char_write(GATT_CHARACTERISTIC_BUTTON, button_value)
-
-
-
 
         except:
             ("cant parse ")
