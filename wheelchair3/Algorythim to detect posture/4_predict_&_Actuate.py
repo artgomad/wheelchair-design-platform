@@ -65,8 +65,8 @@ def sendByBluetooth(x):
 
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([bytes(x), 0x00, 0x00]))
     # print("sending: " + bytes(x).decode('utf-8'))
-    print("sending: " + str(x))
-    # print(x)
+    print("sending: ")
+    print(x)
 
 def audioList(x):
     return {
@@ -109,7 +109,7 @@ def predict(values, prevResult=0, counter=0):
 
 
 # Real time prediction
-def serial_to_property_values():
+def serial_to_property_values(prev_button_value = 0):
 
     line_bytes = ser.readline()
     # print("LINE BYTES: ")
@@ -127,8 +127,6 @@ def serial_to_property_values():
             button_value = str_values.pop(0)
 
             print("button_value = " + button_value)
-
-            prev_button_value = 0
 
             fsrValues = fsrString_values.split(',')
 
@@ -152,6 +150,8 @@ def serial_to_property_values():
             ("cant parse ")
 
 def play_sound(file, duration):
+
+    print("playing audio")
     CHUNK = 1024
 
     # Load the WAV file
