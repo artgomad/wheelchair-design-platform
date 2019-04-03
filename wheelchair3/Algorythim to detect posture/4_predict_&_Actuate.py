@@ -94,12 +94,13 @@ def predict(values, prevResult=0, counter=0):
 
     if counter == 5:
         # audioList(result+1)
-        # sendByBluetooth(result+1)
+        sendByBluetooth(result+1)
+        # print("tick")
         counter = 0
 
     # Delay de un segundo
     # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
-    print("tick")
+
 
 
 # Real time prediction
