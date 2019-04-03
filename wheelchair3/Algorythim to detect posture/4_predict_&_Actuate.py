@@ -62,10 +62,16 @@ def discover_characteristic(device):
 
 
 def sendByBluetooth(x):
+<<<<<<< HEAD
     x_Bytes = bytes(x)
     print("x_Bytes = ")
     print(x_Bytes)
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x_Bytes, 0x00, 0x00]))
+=======
+
+    print("hello bluetoth")
+    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([bytes(x)]))
+>>>>>>> 8624d531d61f6bcb664ad1d966da806c149c5c44
     # print("sending: " + bytes(x).decode('utf-8'))
     # print("sending: ")
     # print(str(x))
