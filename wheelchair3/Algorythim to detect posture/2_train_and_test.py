@@ -32,8 +32,8 @@ THING_TOKEN = os.environ['THING_TOKEN']
 MODEL_FILE_NAME = "model.pickle"
 
 # Data collection time frame (in milliseconds)
-START_TS = 1554289140000
-END_TS = 1554289140000+5000000
+START_TS = 1554281940000
+END_TS = 1554281940000+5000000
 
 # Property ID
 PROPERTY_DATA = "fsryoga-ea9c"
@@ -154,8 +154,7 @@ sitting.read(START_TS, END_TS)
 print("Sitting: ")
 print(str(sitting))
 
-# sitting.align_values_to(fsr)
-
+sitting.align_values_to(fsr)
 classes = []
 for clazz in sitting.classes:
     classes.append(clazz['name'])
