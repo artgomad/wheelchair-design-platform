@@ -167,6 +167,7 @@ def play_sound(file, duration):
 # I read the characteristics defined by the feather
 discover_characteristic(my_device)
 
+serial_to_property_values()
 # while true funciona como la void loop() en arduino,ejecutandose continuamente
 while True:
     serial_to_property_values()
