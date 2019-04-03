@@ -210,6 +210,7 @@ for index in range(len(leftover_data)):
 # Check if data is being pulled from the hub
 
 print("TRAINING DATA")
+print(len(train_data))
 print(train_data[0])
 
 print("VALIDATION DATA")
