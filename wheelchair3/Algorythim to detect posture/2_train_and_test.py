@@ -149,7 +149,7 @@ print("this is the fsr thingy: " + str(fsr))
 fsr.read(START_TS, END_TS)
 
 sitting = my_thing.find_property_by_name("Yoga Wheelchair")
-sitting.read(START_TS, END_TS)
+# sitting.read(START_TS, END_TS)
 
 print("Sitting: ")
 print(str(sitting))
