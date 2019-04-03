@@ -65,7 +65,8 @@ def sendByBluetooth(x):
 
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytes(x))
     # print("sending: " + bytes(x).decode('utf-8'))
-    print("sending: " + x)
+    print("sending: ")
+    print(bytes(x))
 
 def audioList(x):
     return {
