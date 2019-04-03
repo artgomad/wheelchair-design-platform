@@ -46,6 +46,7 @@ bleAdapter.start()
 # User the BLE adapter to connect to our device
 my_device = bleAdapter.connect(BLUETOOTH_DEVICE_MAC, address_type=ADDRESS_TYPE)
 
+print("MY DEVICE: ")
 print(my_device)
 
 def timer():
