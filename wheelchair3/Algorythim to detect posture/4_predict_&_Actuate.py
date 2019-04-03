@@ -64,7 +64,7 @@ def discover_characteristic(device):
 def sendByBluetooth(x):
 
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytes(x))
-    print("sending: " + str(bytes(x)))
+    print("sending: " + bytes(x).decode('utf-8'))
 
 def audioList(x):
     return {
@@ -85,7 +85,7 @@ def predict(values, prevResult=0, counter=0):
     result = neigh.predict(values)
     print(classes[result[0]])
 
-    # sendByBluetooth(result+1)
+    sendByBluetooth(result+1)
 
     """
     if result == prevResult and result != 0:
