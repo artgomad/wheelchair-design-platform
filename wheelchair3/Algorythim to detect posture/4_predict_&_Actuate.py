@@ -109,7 +109,7 @@ def predict(values, prevResult=0, counter=0):
 
 
 # Real time prediction
-def serial_to_property_values(prev_button_value = 0):
+def serial_to_property_values():
 
     line_bytes = ser.readline()
     # print("LINE BYTES: ")
@@ -127,6 +127,8 @@ def serial_to_property_values(prev_button_value = 0):
             button_value = str_values.pop(0)
 
             print("button_value = " + button_value)
+
+            prev_button_value = 0
 
             fsrValues = fsrString_values.split(',')
 
