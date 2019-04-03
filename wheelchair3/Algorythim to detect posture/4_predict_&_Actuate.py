@@ -63,13 +63,13 @@ def discover_characteristic(device):
 
 def sendByBluetooth(x):
     x_Bytes = bytes(x)
-    print("x_Bytes = ")
-    print(x_Bytes)
+    # print("x_Bytes = ")
+    # print(x_Bytes)
 
     # my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x_Bytes, 0x00, 0x00]))
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, x_Bytes)
-    print("sending :")
-    print(x_Bytes)
+    # print("sending :")
+    # print(x_Bytes)
 
 def audioList(x):
     return {
@@ -112,7 +112,7 @@ def predict(values, prevResult=0, counter=0):
 
 
 # Real time prediction
-def serial_to_property_values():
+def serial_to_property_values(prev_button_value = 0):
 
     line_bytes = ser.readline()
     # print("LINE BYTES: ")
@@ -130,8 +130,6 @@ def serial_to_property_values():
             button_value = str_values.pop(0)
 
             print("button_value = " + button_value)
-
-            prev_button_value = 0
 
             fsrValues = fsrString_values.split(',')
 
