@@ -85,7 +85,7 @@ def predict(values, prevResult=0, counter=0):
     result = neigh.predict(values)
     print(classes[result[0]])
 
-    sendByBluetooth(result+1)
+    # sendByBluetooth(result+1)
 
     """
     if result == prevResult and result != 0:
