@@ -107,8 +107,11 @@ def predict(values):
 # Real time prediction
 def serial_to_property_values():
 
-    print("Hello serial_to_poperty_values!!!!! ")
     line_bytes = ser.readline()
+    print("LINE BYTES: ")
+    print(str(line_bytes))
+    print("LINE LENGTH: ")
+    print(len(line_bytes))
     # If the line is not empty
     if len(line_bytes) > 20:
         try:
