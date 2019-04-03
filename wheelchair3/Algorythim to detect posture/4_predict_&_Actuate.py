@@ -108,10 +108,10 @@ def predict(values):
 def serial_to_property_values():
 
     line_bytes = ser.readline()
-    print("LINE BYTES: ")
-    print(str(line_bytes))
-    print("LINE LENGTH: ")
-    print(len(line_bytes))
+    # print("LINE BYTES: ")
+    # print(str(line_bytes))
+    # print("LINE LENGTH: ")
+    # print(len(line_bytes))
     # If the line is not empty
     if len(line_bytes) > 20:
         try:
@@ -119,13 +119,22 @@ def serial_to_property_values():
             line = line_bytes.decode('utf-8')
             str_values = line.split('B')
             fsrString_values = str_values.pop(0)
+
             button_value = str_values.pop(0)
+
+            print("button_value = ")
+            print(button_value)
+
             prev_button_value = 0
 
             fsrValues = fsrString_values.split(',')
 
             values = [float(x) for x in fsrValues]
             values = [values]
+
+            print("VALUES = ")
+            print(values)
+
             np.array(values).reshape(1, -1)
             predict(values)
 
