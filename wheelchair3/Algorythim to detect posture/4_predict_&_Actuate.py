@@ -143,7 +143,7 @@ def serial_to_property_values():
             predict(values)
 
             # If the start button is pressed for the first time
-            if button_value != prev_button_value and button_value == 1:
+            if button_value != prev_button_value:
                 print("Start the Yoga session")
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
                 my_device.char_write(GATT_CHARACTERISTIC_BUTTON, button_value)
