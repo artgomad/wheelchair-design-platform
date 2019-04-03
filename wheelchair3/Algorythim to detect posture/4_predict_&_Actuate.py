@@ -62,9 +62,9 @@ def discover_characteristic(device):
 
 
 def sendByBluetooth(x):
+    print("sending: " + str(x))
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytes(x))
-    print("sending: " + x)
-
+    # print("sending: " + x)
 
 def audioList(x):
     return {
@@ -87,6 +87,7 @@ def predict(values, prevResult=0, counter=0):
 
     sendByBluetooth(result+1)
 
+    """
     if result == prevResult and result != 0:
         counter = counter + 1
         prevResult = result
@@ -99,7 +100,7 @@ def predict(values, prevResult=0, counter=0):
         # sendByBluetooth(result+1)
         # print("tick")
         counter = 0
-
+    """
     # Delay de un segundo
     # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
 
