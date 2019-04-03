@@ -129,7 +129,7 @@ def serial_to_property_values(prev_button_value = 0):
 
             button_value = str_values.pop(0)
 
-            # print("button_value = " + button_value)
+            print("button_value = " + button_value + "prev_button_value = " + prev_button_value)
 
             fsrValues = fsrString_values.split(',')
 
