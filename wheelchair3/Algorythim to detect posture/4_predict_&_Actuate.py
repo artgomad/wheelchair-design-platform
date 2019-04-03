@@ -63,10 +63,10 @@ def discover_characteristic(device):
 
 def sendByBluetooth(x):
 
-    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytes(x))
+    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, x)
     # print("sending: " + bytes(x).decode('utf-8'))
     print("sending: ")
-    print(bytes(x))
+    print(x)
 
 def audioList(x):
     return {
