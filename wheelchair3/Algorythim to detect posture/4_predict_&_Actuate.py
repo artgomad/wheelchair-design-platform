@@ -66,7 +66,8 @@ def sendByBluetooth(x):
     print("x_Bytes = ")
     print(x_Bytes)
 
-    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x_Bytes, 0x00, 0x00]))
+    # my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x_Bytes, 0x00, 0x00]))
+    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, x_Bytes)
     print("sending...")
     # print("sending: ")
     # print(str(x))
