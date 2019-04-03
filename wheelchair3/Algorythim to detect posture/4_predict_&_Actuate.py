@@ -129,7 +129,8 @@ def serial_to_property_values():
             values = [float(x) for x in fsrValues]
             values = [values]
 
-            print("VALUES = " + str(values))
+            print("VALUES = ")
+            print(values)
 
             np.array(values).reshape(1, -1)
             predict(values)
