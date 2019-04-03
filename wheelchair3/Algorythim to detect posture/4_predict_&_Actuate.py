@@ -62,7 +62,7 @@ def discover_characteristic(device):
 
 
 def sendByBluetooth(x):
-    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, x)
+    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x]))
     print("sending: " + x)
 
 
