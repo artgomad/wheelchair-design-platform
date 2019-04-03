@@ -62,11 +62,13 @@ def discover_characteristic(device):
 
 
 def sendByBluetooth(x):
-
-    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, x)
+    x_Bytes = bytes(x)
+    print("x_Bytes = ")
+    print(x_Bytes)
+    my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x_Bytes, 0x00, 0x00]))
     # print("sending: " + bytes(x).decode('utf-8'))
-    print("sending: ")
-    print(x)
+    # print("sending: ")
+    # print(str(x))
 
 def audioList(x):
     return {
@@ -152,6 +154,8 @@ def serial_to_property_values():
             ("cant parse ")
 
 def play_sound(file, duration):
+
+    print("playing audio")
     CHUNK = 1024
 
     # Load the WAV file
