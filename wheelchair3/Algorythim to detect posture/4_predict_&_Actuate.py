@@ -78,12 +78,10 @@ def audioList(x):
 # If default it will play the last audio
 
 starttime = time.time()
-prevResult = 0
-counter = 0
 
-def predict(values):
 
-    print("Hello predict")
+def predict(values, prevResult=0, counter=0):
+
     result = neigh.predict(values)
     print(classes[result[0]])
 
@@ -122,8 +120,7 @@ def serial_to_property_values():
 
             button_value = str_values.pop(0)
 
-            print("button_value = ")
-            print(button_value)
+            print("button_value = " + button_value)
 
             prev_button_value = 0
 
@@ -132,8 +129,7 @@ def serial_to_property_values():
             values = [float(x) for x in fsrValues]
             values = [values]
 
-            print("VALUES = ")
-            print(values)
+            print("VALUES = " + values)
 
             np.array(values).reshape(1, -1)
             predict(values)
