@@ -16,7 +16,8 @@ with open("model.pickle", 'rb') as file:
 # classes = ["Not Sitting", "Proper Sitting", "Leaning Forward",
 #           "Leaning Backward", "Leaning Left", "Leaning Right"]
 
-classes = ["Not Sitting", "Proper Sitting"]
+CLASSES = ["Not Sitting", "Proper Sitting", "Leg Stretch Right",
+           "Leg Stretch Left", "Twist Right", "Twist Left", "Forward Bend"]
 
 # Read data from serial port
 ser = serial.Serial(

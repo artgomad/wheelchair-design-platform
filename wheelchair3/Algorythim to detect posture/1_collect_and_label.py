@@ -21,7 +21,8 @@ THING_TOKEN = os.environ['THING_TOKEN']
 # CLASSES = ["Not Sitting", "Proper Sitting", "Leaning Forward",
 #           "Leaning Backward", "Leaning Left", "Leaning Right"]
 
-CLASSES = ["Not Sitting", "Proper Sitting"]
+CLASSES = ["Not Sitting", "Proper Sitting", "Leg Stretch Right",
+           "Leg Stretch Left", "Twist Right", "Twist Left", "Forward Bend"]
 
 LABEL_PROP_NAME = "Yoga Wheelchair"
 DATA_PROP_NAME = "fsrYoga"
