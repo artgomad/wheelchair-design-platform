@@ -117,7 +117,7 @@ def serial_to_property_values():
         try:
             # Convert the bytes into string
             line = line_bytes.decode('utf-8')
-            str_values = line.split('B')
+            str_values = line.split(',B,')
             fsrString_values = str_values.pop(0)
 
             button_value = str_values.pop(0)
