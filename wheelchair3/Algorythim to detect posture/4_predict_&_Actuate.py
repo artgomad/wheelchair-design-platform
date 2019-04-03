@@ -93,12 +93,12 @@ def predict(values, prevResult=0, counter=0):
         prevResult = result
 
     if counter == 5:
-        audioList(result+1)
-        sendByBluetooth(result+1)
+        # audioList(result+1)
+        # sendByBluetooth(result+1)
         counter = 0
 
     # Delay de un segundo
-    time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+    # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
     print("tick")
 
 
@@ -129,8 +129,7 @@ def serial_to_property_values():
             values = [float(x) for x in fsrValues]
             values = [values]
 
-            print("VALUES = ")
-            print(values)
+            print("VALUES = " + str(values))
 
             np.array(values).reshape(1, -1)
             predict(values)
