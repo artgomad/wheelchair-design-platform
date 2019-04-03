@@ -147,7 +147,7 @@ def serial_to_property_values():
                 print("Start the Yoga session")
                 prev_button_value = button_value
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
-                my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
+                # my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
                 play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 10)
 
 
