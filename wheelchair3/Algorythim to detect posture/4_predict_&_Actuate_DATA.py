@@ -121,9 +121,9 @@ def predict(values):
     if counter == 100:
         # audioList(result+1)
         # sendByBluetooth(result+1)
-        print("tick")
         counter = 0
 
+    print(counter)
     # Delay de un segundo
     # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
 
