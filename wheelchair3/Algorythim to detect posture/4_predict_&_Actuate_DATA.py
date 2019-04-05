@@ -95,11 +95,13 @@ starttime = time.time()
 
 prevResult = 0
 counter = 0
+expectedPos = 0
 
 def predict(values):
 
     global prevResult
     global counter
+    global expectedPos
 
     result = neigh.predict(values)
     # print(result[0])
@@ -118,12 +120,14 @@ def predict(values):
         counter = 0
         prevResult = result
 
-    if counter == 100:
+    if counter == 100 & result == expectedPos:
         # audioList(result+1)
         # sendByBluetooth(result+1)
+        print(classes[result[0]])
+        expectedPos += 1
         counter = 0
 
-    print(counter)
+
     # Delay de un segundo
     # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
 
