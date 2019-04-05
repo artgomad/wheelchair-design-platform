@@ -180,7 +180,7 @@ def serial_to_property_values():
                 prev_button_value = button_value
 
                 # play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 47)
-                play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/2_intro_postures.wav', 11)
+                # play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/2_intro_postures.wav', 11)
                 sendByBluetooth([1])
 
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
