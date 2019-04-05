@@ -103,8 +103,10 @@ def predict(values, prevResult=0, counter=0):
 
     sendByBluetooth(result+1)
 
-    prop_label.update_values(result, current_ts_ms)
-    prop_data.update_values(values, current_ts_ms)
+    # prop_label.update_values(result, current_ts_ms)
+    # prop_data.update_values(values, current_ts_ms)
+
+    prop_label.update_values(result)
 
 
 
