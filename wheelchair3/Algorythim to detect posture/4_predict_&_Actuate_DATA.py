@@ -139,7 +139,6 @@ def predict(values):
     print("                                                            " + str(counter) + "        CURRENT POSITION = " + str(classes[result[0]]) + "               EXPECTED POSITION = " + str(classes[expectedPos]))
     # Delay de un segundo
     # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
-    print(result+2)
 
 prev_button_value = 0
 
@@ -176,13 +175,13 @@ def serial_to_property_values():
             predict(values)
 
             # If the start button is pressed for the first time
-            if button_value != prev_button_value:
+            if button_value == 1:
                 print("Start the Yoga session")
                 prev_button_value = button_value
 
                 # play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 47)
                 play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/2_intro_postures.wav', 11)
-                sendByBluetooth(int(1))
+                sendByBluetooth([1])
 
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
                 # my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
