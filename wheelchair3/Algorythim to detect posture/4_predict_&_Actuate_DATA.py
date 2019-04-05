@@ -77,8 +77,8 @@ def sendByBluetooth(x):
 
     # my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x_Bytes, 0x00, 0x00]))
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, x_Bytes)
-    print("sending :")
-    print(x_Bytes)
+    # print("sending :")
+    # print(x_Bytes)
 
 def audioList(x):
     return {
@@ -93,11 +93,16 @@ def audioList(x):
 
 starttime = time.time()
 
+prevResult = 0
+counter = 0
 
-def predict(values, prevResult=0, counter=0):
+def predict(values):
+
+    global prevResult
+    global counter
 
     result = neigh.predict(values)
-    print(result[0])
+    # print(result[0])
     # print(classes[result[0]])
 
     current_ts_ms = int(round(time.time() * 1000))
@@ -106,21 +111,19 @@ def predict(values, prevResult=0, counter=0):
 
     prop_label.update_values([int(result[0])])
 
-
-    """
-    if result == prevResult and result != 0:
+    if result == prevResult:
         counter = counter + 1
         prevResult = result
     else:
         counter = 0
         prevResult = result
 
-    if counter == 5:
+    if counter == 100:
         # audioList(result+1)
         # sendByBluetooth(result+1)
-        # print("tick")
+        print("tick")
         counter = 0
-    """
+
     # Delay de un segundo
     # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
 
@@ -150,7 +153,7 @@ def serial_to_property_values():
             fsrValues = fsrString_values.split(',')
 
             values = [float(x) for x in fsrValues]
-            print("VALUES = " + str(values))
+            # print("VALUES = " + str(values))
             prop_data.update_values(values)
 
             values = [values]
