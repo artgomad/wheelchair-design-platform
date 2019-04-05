@@ -95,7 +95,7 @@ starttime = time.time()
 
 prevResult = 0
 counter = 0
-expectedPos = 2
+expectedPos = 1
 
 def predict(values):
 
@@ -120,7 +120,7 @@ def predict(values):
         counter = 0
         prevResult = result
 
-    if counter == 100 & result == expectedPos:
+    if counter >= 100 & result == expectedPos:
         audioList(result+1)
         # sendByBluetooth(result+1)
         print(classes[result[0]])
