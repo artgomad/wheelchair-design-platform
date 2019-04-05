@@ -119,7 +119,7 @@ def predict(values):
         prevResult = result
 
     if counter == 100:
-        # audioList(result+1)
+        audioList(result+1)
         # sendByBluetooth(result+1)
         counter = 0
 
@@ -166,7 +166,7 @@ def serial_to_property_values():
                 print("Start the Yoga session")
                 prev_button_value = button_value
 
-                play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 10)
+                # play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 10)
 
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
                 # my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
