@@ -107,7 +107,7 @@ def predict(values, prevResult=0, counter=0):
     #prop_label.update_values(classes[result[0]], current_ts_ms)
 
 
-    prop_label.update_values([result[0]])
+    prop_label.update_values([result])
 
 
 
@@ -155,12 +155,10 @@ def serial_to_property_values():
             fsrValues = fsrString_values.split(',')
 
             values = [float(x) for x in fsrValues]
-
+            print("VALUES = " + str(values))
             prop_data.update_values(values)
 
             values = [values]
-
-            print("VALUES = " + str(values))
 
             np.array(values).reshape(1, -1)
             predict(values)
