@@ -107,7 +107,8 @@ def predict(values, prevResult=0, counter=0):
     #prop_label.update_values(classes[result[0]], current_ts_ms)
 
 
-    prop_label.update_values(classes[result[0]])
+    prop_data.update_values(values)
+    # prop_label.update_values(classes[result[0]])
 
 
 
