@@ -126,7 +126,7 @@ def predict(values):
         expectedPos += 1
         counter = 0
 
-    print("CURRENT POSITION = " + str(classes[result[0]]) + "EXPECTED POSITION = " + str(expectedPos))
+    print("                                                                     CURRENT POSITION = " + str(classes[result[0]]) + "               EXPECTED POSITION = " + str(classes[expectedPos]))
     # Delay de un segundo
     # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
 
