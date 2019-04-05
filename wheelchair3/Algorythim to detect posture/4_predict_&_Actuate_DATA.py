@@ -97,7 +97,7 @@ starttime = time.time()
 def predict(values, prevResult=0, counter=0):
 
     result = neigh.predict(values)
-    print(classes[result[0]])
+    print(classes[result])
 
     current_ts_ms = int(round(time.time() * 1000))
 
