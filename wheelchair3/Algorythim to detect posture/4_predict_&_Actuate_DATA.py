@@ -123,10 +123,11 @@ def predict(values):
         prevResult = result
 
     if counter >= 100 and currentPos == expectedPos:
-        audioList(result)
-        # sendByBluetooth(result+1)
         expectedPos += 1
         counter = 0
+        audioList(result)
+        # sendByBluetooth(result+1)
+
 
     print("                                                            " + str(counter) + "        CURRENT POSITION = " + str(classes[result[0]]) + "               EXPECTED POSITION = " + str(classes[expectedPos]))
     # Delay de un segundo
