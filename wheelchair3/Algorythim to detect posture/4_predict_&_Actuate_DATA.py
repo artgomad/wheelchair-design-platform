@@ -82,17 +82,17 @@ def sendByBluetooth(x):
 
 def audioList(x):
     if x is 0:
-        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/3_posture_1_right_side.wav', 10)
+        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/3_posture_1_right_side.wav', 25)
     elif x is 1:
-        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/4_posture_1_left.wav', 10)
+        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/4_posture_1_left.wav', 26)
     elif x is 2:
-        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/5_posture_2_side_1.wav', 10)
+        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/5_posture_2_side_1.wav', 20)
     elif x is 3:
-        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/6_posture_2_side_2.wav', 10)
+        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/6_posture_2_side_2.wav', 26)
     elif x is 4:
-        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/7_pose_3_down.wav', 10)
+        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/7_pose_3_down.wav', 22)
     elif x is 5:
-        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/8_back_to_comfortable_position.wav', 10)
+        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/8_back_to_comfortable_position.wav', 7)
 
     #    play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/9_try_again.wav', 10))
 # If default it will play the last audio
@@ -129,9 +129,9 @@ def predict(values):
         prevResult = result
 
     if counter >= 100 and currentPos == expectedPos:
+        audioList(currentPos)
         expectedPos += 1
         counter = 0
-        audioList(currentPos)
         # sendByBluetooth(result+1)
 
 
@@ -178,7 +178,8 @@ def serial_to_property_values():
                 print("Start the Yoga session")
                 prev_button_value = button_value
 
-                # play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 10)
+                # play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 47)
+                # play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/2_intro_postures.wav', 11)
 
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
                 # my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
