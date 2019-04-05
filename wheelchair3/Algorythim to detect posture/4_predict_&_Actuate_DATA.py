@@ -82,7 +82,7 @@ def sendByBluetooth(x):
 
 def audioList(x):
     if x is 1:
-        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/3_posture_1_right_side.wav', 25)
+        play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/3_posture_1_right_side.wav', 23)
     elif x is 2:
         play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/4_posture_1_left.wav', 26)
     elif x is 3:
