@@ -97,7 +97,7 @@ starttime = time.time()
 def predict(values, prevResult=0, counter=0):
 
     result = neigh.predict(values)
-    print(result)
+    print(result[0])
     # print(classes[result[0]])
 
     current_ts_ms = int(round(time.time() * 1000))
@@ -107,7 +107,7 @@ def predict(values, prevResult=0, counter=0):
     #prop_data.update_values(values, current_ts_ms)
     #prop_label.update_values(classes[result[0]], current_ts_ms)
 
-    prop_label.update_values(result)
+    prop_label.update_values([int(result[0])])
 
 
 
