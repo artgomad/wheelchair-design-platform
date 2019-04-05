@@ -115,7 +115,7 @@ def predict(values):
 
     current_ts_ms = int(round(time.time() * 1000))
 
-    sendByBluetooth(result+1)
+    # sendByBluetooth(result+1)
 
     currentPos = int(result[0])
 
