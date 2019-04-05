@@ -111,7 +111,9 @@ def predict(values):
 
     sendByBluetooth(result+1)
 
-    prop_label.update_values([int(result[0])])
+    currentPos = int(result[0])
+
+    prop_label.update_values([currentPos])
 
     if result == prevResult:
         counter = counter + 1
@@ -120,7 +122,7 @@ def predict(values):
         counter = 0
         prevResult = result
 
-    if counter >= 100 & result[0] == expectedPos:
+    if counter >= 100 & currentPos == expectedPos:
         audioList(result+1)
         # sendByBluetooth(result+1)
         expectedPos += 1
