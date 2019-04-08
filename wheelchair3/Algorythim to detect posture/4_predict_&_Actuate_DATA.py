@@ -129,8 +129,8 @@ def predict(values):
         prevResult = result
 
     if counter >= 100 and currentPos == expectedPos:
-        audioList(currentPos)
         sendByBluetooth(result + 1)
+        audioList(currentPos)
         expectedPos += 1
         counter = 0
 
