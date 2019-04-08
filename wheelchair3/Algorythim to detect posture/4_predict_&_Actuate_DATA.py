@@ -185,7 +185,7 @@ def serial_to_property_values():
 
 
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
-                my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
+                # my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
 
 
         except:
