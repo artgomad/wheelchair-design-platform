@@ -178,10 +178,11 @@ def serial_to_property_values():
             if button_value == 1 and button_value != prev_button_value:
                 print("Start the Yoga session")
                 prev_button_value = button_value
+                sendByBluetooth([1])
 
                 play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 47)
                 play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/2_intro_postures.wav', 11)
-                sendByBluetooth([1])
+
 
                 # Writes the button value in the BUTTON GATT CHARACTERISTIC
                 my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
