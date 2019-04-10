@@ -71,14 +71,11 @@ def discover_characteristic(device):
 
 
 def sendByBluetooth(x):
-    x_Bytes = bytes(x)
-    # print("x_Bytes = ")
-    # print(x_Bytes)
 
-    # my_device.char_write(GATT_CHARACTERISTIC_POSTURE, bytearray([x_Bytes, 0x00, 0x00]))
+    x_Bytes = bytes(x)
+
     my_device.char_write(GATT_CHARACTERISTIC_POSTURE, x_Bytes)
-    # print("sending :")
-    # print(x_Bytes)
+
 
 def audioList(x):
     if x is 1:
@@ -110,15 +107,12 @@ def predict(values):
     global expectedPos
 
     result = neigh.predict(values)
-    # print(result[0])
-    # print(classes[result[0]])
-
-    current_ts_ms = int(round(time.time() * 1000))
-
-    # sendByBluetooth(result+1)
 
     currentPos = int(result[0])
 
+    """
+    7. Updates the value of the 'Yoga Wheelchair' property in the DCD Hub
+    """
     prop_label.update_values([currentPos])
 
     if result == prevResult:
@@ -128,30 +122,35 @@ def predict(values):
         counter = 0
         prevResult = result
 
+    """
+    8. Check if the current posture equals the expected one without
+       changing during 100 loop repetitions
+    """
     if counter >= 100 and currentPos == expectedPos:
+        """
+        9. Send the required position via Bluetooth to the Feather
+        """
         sendByBluetooth(result + 1)
+        """"
+        10. Play audio, guiding the user to start with the next posture
+        """
         audioList(currentPos)
         expectedPos += 1
         counter = 0
 
-
-
     print("                                                            " + str(counter) + "        CURRENT POSITION = " + str(classes[result[0]]) + "               EXPECTED POSITION = " + str(classes[expectedPos]))
-    # Delay de un segundo
-    # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+
 
 prev_button_value = 0
 
-# Real time prediction
+
 def serial_to_property_values():
+
     global prev_button_value
 
     line_bytes = ser.readline()
-    # print("LINE BYTES: ")
-    # print(str(line_bytes))
-    # print("LINE LENGTH: ")
-    # print(len(line_bytes))
-    # If the line is not empty
+
+    # If the line is not corrupted
     if len(line_bytes) > 20:
         try:
             # Convert the bytes into string
@@ -166,15 +165,17 @@ def serial_to_property_values():
             fsrValues = fsrString_values.split(',')
 
             values = [float(x) for x in fsrValues]
-            # print("VALUES = " + str(values))
+
+            """
+            4. Updates the values of the 'fsrYoga' property in the DCD Hub
+            """
             prop_data.update_values(values)
 
             values = [values]
 
-            np.array(values).reshape(1, -1)
-            predict(values)
-
-            # If the start button is pressed for the first time
+            """
+            5. Starts Yoga Session
+            """
             if button_value == 1 and button_value != prev_button_value:
                 print("Start the Yoga session")
                 prev_button_value = button_value
@@ -183,10 +184,12 @@ def serial_to_property_values():
                 play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/1_intro_yoga.wav', 47)
                 play_sound('/home/pi/wheelchair-design-platform/docs/workshops/audios/2_intro_postures.wav', 11)
 
-
-                # Writes the button value in the BUTTON GATT CHARACTERISTIC
-                # my_device.char_write(GATT_CHARACTERISTIC_BUTTON, bytes(button_value))
-
+            """
+            6. Uses the algorithm to predict the current posture of the user
+            based on the readings of the 9 FSRs
+            """
+            np.array(values).reshape(1, -1)
+            predict(values)
 
         except:
             ("cant parse ")
@@ -221,6 +224,10 @@ def play_sound(file, duration):
 
     p.terminate()
 
+
+"""
+ 1. Connects with the Data Centric Design Hub
+"""
 # Instantiate a thing with its credential
 my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 
@@ -233,10 +240,17 @@ if prop_label.classes is None or len(prop_label.classes) == 0:
     prop_label.create_classes(classes)
 
 prop_data = my_thing.find_or_create_property(DATA_PROP_NAME, PropertyType.NINE_DIMENSIONS)
-# I read the characteristics defined by the feather
+
+
+"""
+2. Reads the characteristics defined by the feather
+"""
 discover_characteristic(my_device)
 
-# serial_to_property_values()
-# while true funciona como la void loop() en arduino,ejecutandose continuamente
+
+"""
+3. Reads the Serial Port uninterruptedly extracting the value of the 9 FSRs
+and the button in separate variables.
+"""
 while True:
     serial_to_property_values()
