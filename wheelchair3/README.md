@@ -8,18 +8,16 @@ Sitting in a wheelchair during long periods of time might increase problems of p
 
 ## What code is running where and for what purpose
 
-* [Raspberry Pi code: Predict yoga posture and actuate](/wheelchair3/docs/Pi_Code_Documentation.md)
-* [Getting started](/docs/workshops/GettingStarted.md)
+### Code running in each devices
 
-## Arduino Mega:
+* [Arduino Mega code: Get FSR input and sent through the Serial port](/wheelchair3/docs/1_Mega_Code_Documentation.md)
+* [Raspberry Pi code: Predict yoga posture and send it through Bluetooth](/wheelchair3/docs/4_Pi_Code_Documentation.md)
+* [Adafruit Feather code: Read posture through Bluetooth and actuate](/wheelchair3/docs/5_Feather_Code_Documentation.md)
 
-**Code:** FSR_reading_AllInOne.ino
+### Machine learning code
 
-This code reads the values of 9 FSR sensors and prints them in the Serial port. It also transforms the readings of a button into a switch variable, switching from true to false whenever the button is pressed.
-
-The 9 FSR values and the switch value are printed in the Serial port in a single line. The 9 values are separated by comas among each other, and a ',B,' separates them from the switch value, which comes last in the line.
-
-## Raspberry Pi:
+* [Collect and label documentation](/wheelchair3/docs/2_Collect_and_label_Documentation.md)
+* [Train and test documentation](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
 
 

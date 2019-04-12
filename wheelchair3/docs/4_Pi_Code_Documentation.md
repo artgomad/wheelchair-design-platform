@@ -1,3 +1,5 @@
+# Raspberry Pi code: Predict yoga posture and actuate
+
 Before running the final code, the algorithm was trained and tested: this required running the following two codes consecutively:
 
 - 1_collect_and_label
