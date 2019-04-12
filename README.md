@@ -25,6 +25,24 @@ Some examples of yoga postures for wheelchair users:
 Images:
 Smart Chair. (2015). Yoga for Wheelchair Users. Retrieved from https://kdsmartchair.com/blogs/news/58783043-yoga-for-wheelchair-users-8-poses
 
+## Setting up the GATT BLE Connexion
+```
+if ( !ble.begin(VERBOSE_MODE) ) {
+    error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
+  }
+
+  if ( FACTORYRESET_ENABLE ) {
+    // Perform a factory reset to make sure everything is in a known state
+    if ( ! ble.factoryReset() ) {
+      error(F("Couldn't factory reset"));
+    }
+  }
+
+  if ( !ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) ) {
+    error( F("Callback requires at least 0.7.0") );
+  }
+```
+
 ## Sensors
 
 The following sensors will be used to verify if each posture made by the user.
