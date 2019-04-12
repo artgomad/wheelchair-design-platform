@@ -8,7 +8,7 @@ Sitting in a wheelchair during long periods of time might increase problems of p
 
 ## What code is running where and for what purpose
 
-### Code running in each devices
+### Code running in each device
 
 * [Arduino Mega code: Get FSR input and sent through the Serial port](/wheelchair3/docs/1_Mega_Code_Documentation.md)
 * [Raspberry Pi code: Predict yoga posture and send it through Bluetooth](/wheelchair3/docs/4_Pi_Code_Documentation.md)

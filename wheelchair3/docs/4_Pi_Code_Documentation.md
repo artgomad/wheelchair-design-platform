@@ -2,10 +2,9 @@
 
 Before running the final code, the algorithm was trained and tested: this required running the following two codes consecutively:
 
-- 1_collect_and_label
-- 2_train_and_test
+* [1. Collect and label](/wheelchair3/docs/2_Collect_and_label_Documentation.md)
+* [2. Train and test](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
-The process of training and testing the algorithm will be explained in detail later
 
 **Code:** 3_predict_and_Actuate.py
 
