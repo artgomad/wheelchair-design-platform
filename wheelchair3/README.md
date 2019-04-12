@@ -1,4 +1,4 @@
-## The yoga wheelchair
+# The yoga wheelchair
 
 ## Project description
 
@@ -10,9 +10,9 @@ Sitting in a wheelchair during long periods of time might increase problems of p
 
 ### Code running in each device
 
-* [Arduino Mega code: Get FSR input and sent through the Serial port](/wheelchair3/docs/1_Mega_Code_Documentation.md)
-* [Raspberry Pi code: Predict yoga posture and send it through Bluetooth](/wheelchair3/docs/4_Pi_Code_Documentation.md)
-* [Adafruit Feather code: Read posture through Bluetooth and actuate](/wheelchair3/docs/5_Feather_Code_Documentation.md)
+* [Arduino Mega: Get FSR input and sent through the Serial port](/wheelchair3/docs/1_Mega_Code_Documentation.md)
+* [Raspberry Pi: Predict yoga posture and send it through Bluetooth](/wheelchair3/docs/4_Pi_Code_Documentation.md)
+* [Adafruit Feather: Read posture through Bluetooth and actuate](/wheelchair3/docs/5_Feather_Code_Documentation.md)
 
 ### Machine learning code
 
@@ -20,6 +20,25 @@ Sitting in a wheelchair during long periods of time might increase problems of p
 * [Train and test documentation](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
 
+## Sensors
+
+The following sensors will be used to verify if each posture made by the user.
+
+* _**Force Sensing Resistor (FSR):**_ This sensor will be used to detect the different yoga postures of the user. The recommended setup is 5 FSR in the back rest and 6 FSR distributed in the bottom cushion.
+
+* _**Time of flight distance sensor:**_ The sensor will determine the distance between the foot holders and the fit, detecting which foot is the user lifting. It can also be placed in the backseat to determine whether the user is bending the back forward or not.
+
+* _**LDR Light sensor:**_ The LDR will be placed in the backseat to detect the users’ hand when performing postures such as the “twist” or “side stretch”.
+
+## Actuators
+
+To inform the user if they are performing the postures correctly, the following actuators will guide them through each exercise.
+
+* _**LCD display 16x2:**_ A screen will be placed at the armrest to let the user know the name of the posture that needs to be performed. It will also help to keep track of the process by indicating the progress.
+
+* _**LED:**_ The LEDs will be placed at the back part of the seat, next to the LDR light sensor acting as visual signals for the user to know where to look and place his or her hand.
+
+* _**DC vibration motor:**_ A vibration motor placed on the seat and backseat will provide sensorial feedback to indicate where the pressure should be made with each posture.
 
 ![Cat pose](/docs/workshops/images/yoga/wheelchair-yoga-cat-pose.jpg)
 
@@ -42,70 +61,6 @@ Smart Chair. (2015). Yoga for Wheelchair Users. Retrieved from https://kdsmartch
 
 
 
-# Sensors
-
-The following sensors will be used to verify if each posture made by the user.
-
-* _**Force Sensing Resistor (FSR):**_ This sensor will be used to detect the different yoga postures of the user. The recommended setup is 5 FSR in the back rest and 6 FSR distributed in the bottom cushion.
-
-* _**Time of flight distance sensor:**_ The sensor will determine the distance between the foot holders and the fit, detecting which foot is the user lifting. It can also be placed in the backseat to determine whether the user is bending the back forward or not.
-
-* _**LDR Light sensor:**_ The LDR will be placed in the backseat to detect the users’ hand when performing postures such as the “twist” or “side stretch”.
-
-# Actuators
-
-To inform the user if they are performing the postures correctly, the following actuators will guide them through each exercise.
-
-* _**LCD display 16x2:**_ A screen will be placed at the armrest to let the user know the name of the posture that needs to be performed. It will also help to keep track of the process by indicating the progress.
-
-* _**LED:**_ The LEDs will be placed at the back part of the seat, next to the LDR light sensor acting as visual signals for the user to know where to look and place his or her hand.
-
-* _**DC vibration motor:**_ A vibration motor placed on the seat and backseat will provide sensorial feedback to indicate where the pressure should be made with each posture.
-
-# Research of possible sensors
-
-__**Direction and speed:**__
-
-* Rotatory Encoder: Pretty simple, but we need to connected in the same rotation axis than the wheel; with one part fixed to the wood while the other rotates with the wheel.
-
-* Optical encoding (IR reflective sensor): The assembly of the hardware and the programming might be a bit more complex, but does the same thing as the rotatory encoder.
-
-__**Pressure, weight and applied force detection:**__
-
-* Force Sensing Resistor (FSR): Can be used to detect different postures of the user. The recommended setup is 5 FSR in the back rest and 6 FSR distributed in the bottom cushion.
-
-* Load Cell (Strain Gauge): A bit more complex I think, its generally used to detect changes in weight, for example in a bathroom scale. It could be used to detect the weight progress of the wheelchair user
-
-__**Wheelchair's orientation:**__
-
-* Gyroscope: Can track wheel chairs rotation in three axis. This can detect where the user is pointing (maybe also looking by combining with the position detection system), detect changes on the slope, or detect if the chair overturns.
-
-__**Acceleration:**__
-
-* Accelerometer: Bump detection (Strong upwards inclination followed by downwards inclination)
-                 Ramp detection (Strong upwards inclination over a medium distance)
-                 Road condition detection (Frequency and intensity of the bumps)
-                 Assisted drive detection?
-
-__**Heart Rate (HR):**__
-
-* Fitness tracking devices like fitBit or Apple Watch: They are only accurate for wheelchair users in low intensity tasks (below 100 bpm) [(reference)](https://www.resna.org/sites/default/files/conference/2016/outcomes/tsang.html). Diferent sensors allow to do this kind of tracking, like EKG sensors (Apple Watch) or PPG sensors.
-
-As HR is difficult to track for Wheelchair users, even with a wristband, it is also very difficult to track the Energy Expenditure (EE), which calculation highly depends on the HR tracking.
-
-__**Electrocardiogram (ECG):**__
-
-* ECG sensor: Is able to detect Arrhythmias (AFib episodes) and therefore reduce the risk of strokes in people with decreased mobility. There are some fitness trackers with this capabilities implemented, like Withings Move ECG or Apple Watch.
-
-__**Time:**__
-
-* RTC module: Real time clock
-
-__**Location:**__
-
-* GPS module
-* Connect to the GPS of the phone via Bluetooth
-____
 _________________________________________________________________________________________________
 ## Wheelchair Design Platform
 
