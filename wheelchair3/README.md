@@ -8,7 +8,7 @@ Sitting in a wheelchair during long periods of time might increase problems of p
 
 ## What code is running where and for what purpose
 
-* [Raspberry Pi code: Predict yoga posture and actuate](/docs/Pi_Code_Documentation.md)
+* [Raspberry Pi code: Predict yoga posture and actuate](wheechair3/docs/Pi_Code_Documentation.md)
 
 ## Arduino Mega:
 
