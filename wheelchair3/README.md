@@ -4,6 +4,17 @@
 
 Sitting in a wheelchair during long periods of time might increase problems of posture, blood circulation and stiffness in the users’ body. There are so many reasons why yoga can be considered as a therapy for this kind of users, not to mention that it brings together mind and body, increasing well being in general. Posture is improved through different exercises which can also be considered as healing to joints and muscles avoiding stiffness and increasing blood circulation. Furthermore, it must be noted that this practice links exercises with respiration, which will not just increase flexibility but also lung capacity.
 
+# What code is running where and for what purpose
+
+## Arduino Mega:
+
+**Code:** FSR_reading_AllInOne.ino
+
+This code reads the values of 9 FSR sensors and prints them in the Serial port. It also transforms the readings of a button into a switch variable, switching from true to false whenever the button is pressed.
+
+The 9 FSR values and the switch value are printed in the Serial port in a single line. The 9 values are separated by comas among each other, and a ',B,' separates them from the switch value, which comes last in the line.
+
+
 Some examples of yoga postures for wheelchair users:
 
 ![Cat pose](/docs/workshops/images/yoga/wheelchair-yoga-cat-pose.jpg)
