@@ -1,6 +1,6 @@
-<mark>This example shows a basic way of collecting data with label. It prompts
+_**This example shows a basic way of collecting data with label. It prompts
 the user with the class (e.g 'Proper Sitting', 'Forward Bend') to perform
-and it associates the corresponding label to the recorded data.</mark>
+and it associates the corresponding label to the recorded data.**_
 
 
 ## 1. Connects with the Data Centric Design Hub
