@@ -155,6 +155,7 @@ print("Sitting: ")
 print(str(sitting))
 
 sitting.align_values_to(fsr)
+
 classes = []
 for clazz in sitting.classes:
     classes.append(clazz['name'])
