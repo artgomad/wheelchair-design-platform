@@ -112,9 +112,7 @@ def serial_to_property_values(class_index, ser):
         return True
     return False
 
-"""
- 1. Connects with the Data Centric Design Hub
-"""
+
 # Instantiate a thing with its credential
 my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 

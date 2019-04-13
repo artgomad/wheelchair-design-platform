@@ -2,12 +2,23 @@ _**This example shows a basic way of collecting data with label. It prompts
 the user with the class (e.g 'Proper Sitting', 'Forward Bend') to perform
 and it associates the corresponding label to the recorded data.**_
 
+---
+
+It performs the following tasks:
 
 ## 1. Connects with the Data Centric Design Hub
 Finds or creates two properties by name:
 
 * Yoga Wheelchair: Property of type CLASS that will store the array of classes ('classes') declared at the beginning of the code.
+```
+prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
+if prop_label.classes is None or len(prop_label.classes) == 0:
+    prop_label.create_classes(CLASSES)
+```
 * fsrYoga: Property of type NINE_DIMENSIONS that will store the values of the 9 FSR sensors
+```
+prop_data = my_thing.find_or_create_property(DATA_PROP_NAME, PropertyType.NINE_DIMENSIONS)
+```
 
 ## 2.Stars collecting data for the posture index 0.
 ```
