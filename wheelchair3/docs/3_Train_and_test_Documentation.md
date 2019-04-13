@@ -2,7 +2,9 @@ _**This Code Uses Machine Learning to generate a model that will be used to comp
 
 ---
 
-## 1. Connects with the Data Centric Design Hub and finds its properties by name
+It performs the following tasks:
+
+## 1. Connect with the Data Centric Design Hub and finds its properties by name
 We only want to use the data that has been properly labelled with the previous code [(Collect and label)](/wheelchair3/docs/2_Collect_and_label_Documentation.md), so we will previously define the data collection timeframe. This is defined as an Epoch timestamp; it is important to use the local time, not the GTM.
 ```
 # Epoch timestamp in milliseconds of the start of the collect_and_label code

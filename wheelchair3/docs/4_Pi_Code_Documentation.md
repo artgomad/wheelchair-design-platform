@@ -1,15 +1,17 @@
 # Raspberry Pi code: Predict yoga posture and actuate
 
-Before running the final code, the algorithm was trained and tested: this required running the following two codes consecutively:
+**Code Name:** 3_predict_and_Actuate.
+
+_**This Code uses the an algorithm previously trained to classify the readings of 9 FSR sensor into 7 posture labels. The FSR readings come from the Serial port, and are updated to the DCD Hub in order to be able to visualize its values in Grafana. Besides, the code uses the predicted posture to play different audio files and sends this posture via Bluetooth using a GATT characteristic.**_
+
+Before running the final code, the algorithm needs to be trained and tested: this required running the following two codes consecutively:
 
 * [1. Collect and label](/wheelchair3/docs/2_Collect_and_label_Documentation.md)
 * [2. Train and test](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
+---
 
-**Code:** 3_predict_and_Actuate.py
-
-This code is a bit more complex, so its functionality will be decomposed for better understanding:
-Some examples of yoga postures for wheelchair users:
+It performs the following tasks:
 
 ### 1. Connects with the Data Centric Design Hub
 
