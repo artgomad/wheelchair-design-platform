@@ -12,6 +12,7 @@ Finds or creates two properties by name:
 * Yoga Wheelchair: Property of type CLASS that will store the array of classes ('classes') declared at the beginning of the code.
 ```
 prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
+
 if prop_label.classes is None or len(prop_label.classes) == 0:
     prop_label.create_classes(CLASSES)
 ```
