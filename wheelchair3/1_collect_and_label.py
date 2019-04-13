@@ -112,7 +112,9 @@ def serial_to_property_values(class_index, ser):
         return True
     return False
 
-
+"""
+ 1. Connects with the Data Centric Design Hub
+"""
 # Instantiate a thing with its credential
 my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 
@@ -128,4 +130,4 @@ prop_data = my_thing.find_or_create_property(DATA_PROP_NAME, PropertyType.NINE_D
 
 
 # Start collecting data for the first class
-collect(3)
+collect(0)
