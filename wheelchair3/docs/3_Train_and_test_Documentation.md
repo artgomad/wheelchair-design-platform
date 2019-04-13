@@ -40,20 +40,21 @@ Each sub-set of data will have a different usage: test, cross-validate and train
 * 20% to cross-validate data
 * 60% to the train data
 
-## Train a k-Nearest Neighbour (kNN) algorithm
+## 3. Train a k-Nearest Neighbour (kNN) algorithm
 In k-NN classification, the output is a class membership, a class from the label array in our case. Each sample is classified by a plurality vote of its neighbors, with the object being assigned to the class most common among its nearest neighbors.
 ```
 neigh = KNeighborsClassifier(n_neighbors=1)
 neigh.fit(train_data, train_label)
 ```
-## Use the test data to evaluate the algorithm
+## 4. Use the test data to evaluate the algorithm
+We will use the 'neigh' algorithm to predict the class (label) of the cv_data dataset (cross-validation data array).
 ```
 predicted = neigh.predict(cv_data)
 cvLabel = numpy.array(cv_label)
 result = accuracy_score(cvLabel, predicted)
 print("cv accuracy: {}".format(result))
 ```
-If the accuracy of the cross-validation data is higher than 0.8, then I repeat the process with the test data, and print the evaluation of the algorithm in a Confusion Matrix
+If the accuracy of the cross-validation data is higher than 0.8, then it repeat the process with the test data, and print the evaluation of the algorithm in a Confusion Matrix
 ```
 if result > 0.8:
     print("Validation passed. Displaying testing performance")
@@ -66,8 +67,8 @@ if result > 0.8:
     generate_confusion_matrix(testLabel)
     print(classification_report(testLabel, predicted, target_names=classes))
 ```
-## Save the model in a file
-To conclude, the model of the k-NN classification ('neigh') is saved in the file 'pickle', which will be retrieved by the code [3_Predict_and_Actuate.py](/wheelchair3/docs/4_Pi_Code_Documentation.md) to infer the current posture from the 9 FSR readings.
+## 5. Save the model in a file
+To conclude, the model of the k-NN classification ('neigh') is saved in the file 'pickle', which will be retrieved by the code [3_Predict_and_Actuate.py](/wheelchair3/docs/4_Pi_Code_Documentation.md) to predict the current posture from the 9 FSR readings.
 ```
 with io.open(MODEL_FILE_NAME, "wb") as file:
     pickle.dump(neigh, file, protocol=2)
