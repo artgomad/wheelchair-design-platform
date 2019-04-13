@@ -1,3 +1,6 @@
+# Train and Test
+
+**Code Name:** 2_train_and_test.py
 _**This Code Uses Machine Learning to generate a model that will be used to compare with the FSR readings in real-time, allowing the Raspberry Pi to infer the current posture of the wheelchair user.**_
 
 ---

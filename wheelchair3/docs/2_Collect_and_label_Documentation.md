@@ -1,3 +1,7 @@
+# Collect and Label
+
+**Code Name:** 1_collect_and_label.py
+
 _**This example shows a basic way of collecting data with label. It prompts
 the user with the class (e.g 'Proper Sitting', 'Forward Bend') to perform
 and it associates the corresponding label to the recorded data.**_

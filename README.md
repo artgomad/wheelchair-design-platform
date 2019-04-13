@@ -16,8 +16,8 @@ Sitting in a wheelchair during long periods of time might increase problems of p
 
 ### Machine learning code
 
-* [Collect and label documentation](/wheelchair3/docs/2_Collect_and_label_Documentation.md)
-* [Train and test documentation](/wheelchair3/docs/3_Train_and_test_Documentation.md)
+* [Collect and label](/wheelchair3/docs/2_Collect_and_label_Documentation.md)
+* [Train and test](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
 
 ## Sensors

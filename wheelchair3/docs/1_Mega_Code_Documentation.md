@@ -1,6 +1,6 @@
 # Arduino Mega:
 
-**Code:** FSR_reading_AllInOne.ino
+**Code Name:** FSR_reading_AllInOne.ino
 
 This code reads the values of 9 FSR sensors and prints them in the Serial port. It also transforms the readings of a button into a switch variable, switching from true to false whenever the button is pressed.
 
