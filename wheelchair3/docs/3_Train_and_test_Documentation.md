@@ -36,27 +36,39 @@ label = sitting.values
 ## 2. Preparing the data set
 The data and label arrays will be decomposed in several subarrays, in order to minimize the biases of a limited data set in machine learning algorithm.
 Each sub-set of data will have a different usage: test, cross-validate and train.
-```
-for index in range(len(data)):
-    # remove time
-    data[index].pop(0)
-    label[index].pop(0)
-    if index%5 == 0: # Todos los multiplos de 5 los meto a test_data
-        # 20% to test data
-        test_data.append(data[index])
-        test_label.append(label[index])
-    else:
-        # 80% leftover data
-        leftover_data.append(data[index])
-        leftover_label.append(label[index])
+* 20% to the test data
+* 20% to cross-validate data
+* 60% to the train data
 
-for index in range(len(leftover_data)):
-    if index%4 == 0:
-        # 20% to cross validate
-        cv_data.append(leftover_data[index])
-        cv_label.append(leftover_label[index])
-    else:
-        # 60% to train
-        train_data.append(leftover_data[index])
-        train_label.append(leftover_label[index])
+## Train a k-Nearest Neighbour (kNN) algorithm
+In k-NN classification, the output is a class membership, a class from the label array in our case. Each sample is classified by a plurality vote of its neighbors, with the object being assigned to the class most common among its nearest neighbors.
+```
+neigh = KNeighborsClassifier(n_neighbors=1)
+neigh.fit(train_data, train_label)
+```
+## Use the test data to evaluate the algorithm
+```
+predicted = neigh.predict(cv_data)
+cvLabel = numpy.array(cv_label)
+result = accuracy_score(cvLabel, predicted)
+print("cv accuracy: {}".format(result))
+```
+If the accuracy of the cross-validation data is higher than 0.8, then I repeat the process with the test data, and print the evaluation of the algorithm in a Confusion Matrix
+```
+if result > 0.8:
+    print("Validation passed. Displaying testing performance")
+    predicted = neigh.predict(test_data)
+    testLabel = numpy.array(test_label)
+    result = accuracy_score(testLabel, predicted)
+    print("test accuracy: {}".format(result))
+    print(classes)
+
+    generate_confusion_matrix(testLabel)
+    print(classification_report(testLabel, predicted, target_names=classes))
+```
+## Save the model in a file
+To conclude, the model of the k-NN classification ('neigh') is saved in the file 'pickle', which will be retrieved by the code [3_Predict_and_Actuate.py](/wheelchair3/docs/4_Pi_Code_Documentation.md) to infer the current posture from the 9 FSR readings.
+```
+with io.open(MODEL_FILE_NAME, "wb") as file:
+    pickle.dump(neigh, file, protocol=2)
 ```
