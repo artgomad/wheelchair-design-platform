@@ -18,6 +18,16 @@ The user presses the button whenever she or he wants to start a yoga session. Th
 
 ---
 
+## System Architecture
+
+### Sensors
+
+* _**Button**_ 
+The start button will be placed in the armrest. The user can press it to initiate the yoga session.
+
+* _**Force Sensing Resistor (FSR)**_
+These sensors will be used to detect the different yoga postures of the user. The recommended setup is 3 FSR in the backrest and 6 FSR distributed in the bottom cushion.
+
 ## What code is running where and for what purpose
 
 ### Code running in each device
@@ -32,7 +42,7 @@ The user presses the button whenever she or he wants to start a yoga session. Th
 * [Train and test](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
 
-## Sensors
+### Sensors
 
 The following sensors will be used to verify if each posture made by the user.
 
