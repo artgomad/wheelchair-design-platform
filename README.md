@@ -57,7 +57,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 1. The button is pressed and read by Arduino.
 2. The nine FSR on the seat and backrest start sensing the posture.
 3. Arduino transmits the data to the Raspberry Pi
-4. Raspberry Pi transfers the data values to the DCD Hub (using a WiFi connection), which allows us to visualise and track the different postures in Grafana.
+4. Raspberry Pi transfers the data values to the DCD Hub (using a WiFi connection), which allows us to visualise and track the different postures in Grafana. (Each of the lines in the first chart represents an FSR value)
 
 ![Working Principle](/docs/workshops/images/finalR/PosturesAndGrafana.png)
 
