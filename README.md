@@ -1,4 +1,6 @@
-# The yoga wheelchair
+# YOGI.SENSE
+
+*A connected wheelchair to enable wheelchair users to exercise through a yoga guided session*.
 
 ## Project description
 
