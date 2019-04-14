@@ -74,20 +74,20 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 
 ## Step-by-step instructions
 
-1. Download the following files from github [You can find them here](/wheelchair3/)
+1. Download the following files from github. You can find them [here.](/wheelchair3/)
    - Input_FSR_to_Serial_MEGA.ino
    - 1_collect_and_label.py
    - 2_train_and_test.py
    - 3_predict_and_Actuate.py
    - Read_Bluetooth_and_Actuate_FEATHER.ino
 2. Download and install the Libraries:
-   In Arduino
-   - SPI.h
-   - Adafruit_BLE.h
-   - Adafruit_BluefruitLE_SPI.h
-   - Adafruit_BluefruitLE_UART.h
-   - BluefruitConfig.h
-   - FastLED.h
+   - In Arduino
+    - SPI.h
+    - Adafruit_BLE.h
+    - Adafruit_BluefruitLE_SPI.h
+    - Adafruit_BluefruitLE_UART.h
+    - BluefruitConfig.h
+    - FastLED.h
    In Python
    - os
    - serial
@@ -136,9 +136,9 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 
 20. Connect the wires between the Adafruit Feather and the 3 DC Vibration Motors according to the image shown in step 19.
 21. Connect the Adafruit Feather and Powerbank using a Micro USB cable according to the image shown in step 19.
-22. Bluetooth connection settings [You can find them here](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop2.md#3-bluetooth-low-energy-ble-gatt-service)
-23. DCD connection settings (point 1.6) [You can find them here](/wheelchair3/)
-24. Grafana connection settings (point 3.5) [You can find them here](/wheelchair3/)
+22. Bluetooth connection settings You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop2.md#3-bluetooth-low-energy-ble-gatt-service)
+23. DCD connection settings (point 1.6) You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop1.md#2-data-centric-design-hub-per-group)
+24. Grafana connection settings (point 3.5) You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop1.md#2-data-centric-design-hub-per-group)
 25. Find the Raspberry Pi on your network.
 26. Connect to the Raspberry Pi using ssh.
 27. Execute the code 3_predict_and_Actuate.py
