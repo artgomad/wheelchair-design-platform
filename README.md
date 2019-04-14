@@ -9,6 +9,7 @@ Sitting in a wheelchair during long periods might increase problems of posture, 
 ## Concept description
 
 This connected wheelchair guides the user through different yoga postures using nine FSR distributed along the seat and backrest; they sense the position of the user, this data is collected making possible a recognition of the different postures the user performs. This way the user will be provided by feedback depending on the prediction made by machine learning.
+
 ---
 
 ## What code is running where and for what purpose
