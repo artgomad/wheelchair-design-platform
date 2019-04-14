@@ -44,7 +44,7 @@ Two vibration motors will be placed on the backseat and 1 in the seat to provide
 * _**Arduino MEGA:**_
 It’s located in the wheelchair mainframe and it is connected to:
 
-···Raspberry pi (USB B cable)
+⋅⋅⋅Raspberry pi (USB B cable)
 
 
 
