@@ -168,6 +168,25 @@ To see a more detailed explanation of the location of the sensors and actuators,
 To see the video click [here.](https://youtu.be/LGbsHrdyxcA)
 
 ![Working Principle](/docs/workshops/images/finalR/posterfinal.jpg)
+
+---
+
+## Exhibition pictures
+
+![Working Principle](/docs/workshops/images/finalR/20190408_095746.jpg)
+
+![Working Principle](/docs/workshops/images/finalR/20190408_095825.jpg)
+
+![Working Principle](/docs/workshops/images/finalR/20190408_095846.jpg)
+
+![Working Principle](/docs/workshops/images/finalR/20190408_105127.jpg)
+
+![Working Principle](/docs/workshops/images/finalR/20190408_105216.jpg)
+
+![Working Principle](/docs/workshops/images/finalR/20190408_110552.jpg)
+
+![Working Principle](/docs/workshops/images/finalR/20190408_111807.jpg)
+
 _________________________________________________________________________________________________
 # Wheelchair Design Platform
 
