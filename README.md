@@ -43,8 +43,25 @@ Two vibration motors will be placed on the backseat and 1 in the seat to provide
 
 * _**Arduino MEGA:**_
 It’s located in the wheelchair mainframe and it is connected to:
+Raspberry Pi (USB B cable)
+LED (no cables, used to verify connection)
+Breadboard with a button (wires)
+Breadboard with FSR sensors (wires)
 
-⋅⋅⋅Raspberry pi (USB B cable)
+* _**Adafruit Feather Bluefruit 32u4:**_
+It is located in a breadboard on the wheelchair mainframe, and it is connected to:
+DC vibration motors (wires)
+NeoPixel ring (wires)
+Powerbank (MICRO USB cable)
+
+### Microprocessor
+
+* _**Raspberry Pi:**_
+It’s attached to the wheelchair mainframe, and it is connected to:
+Arduino MEGA (USB B cable)
+Speaker (USB cable)
+Powerbank (MICRO USB cable)
+
 
 
 
