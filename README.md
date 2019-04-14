@@ -70,6 +70,12 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 
 ![Working Principle](/docs/workshops/images/finalR/SystemArch.png)
 
+---
+
+## Step-by-step instructions
+
+1. Download the following files from github [You can find them here](/wheelchair3/)
+
 ## What code is running where and for what purpose
 
 ### Code running in each device
@@ -83,8 +89,14 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 * [Collect and label](/wheelchair3/docs/2_Collect_and_label_Documentation.md)
 * [Train and test](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
+---
+## Poster and video
 
+To see a more detailed explanation of the location of the sensors and actuators, we provide you with a video and a poster.
 
+To see the video: https://youtu.be/LGbsHrdyxcA
+
+![Working Principle](/docs/workshops/images/finalR/posterfinal.png)
 _________________________________________________________________________________________________
 ## Wheelchair Design Platform
 
