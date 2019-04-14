@@ -160,6 +160,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 * [Train and test](/wheelchair3/docs/3_Train_and_test_Documentation.md)
 
 ---
+
 ## Poster and video
 
 To see a more detailed explanation of the location of the sensors and actuators, we provide you with a video and a poster.
