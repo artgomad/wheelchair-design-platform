@@ -169,7 +169,7 @@ To see the video: https://youtu.be/LGbsHrdyxcA
 
 ![Working Principle](/docs/workshops/images/finalR/posterfinal.png)
 _________________________________________________________________________________________________
-## Wheelchair Design Platform
+# Wheelchair Design Platform
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
@@ -249,7 +249,6 @@ On the wheel:
 * 1 small power bank;
 * 1 small breadboard;
 * 1 USB cable A/B (power bank to Arduino Uno).
-
 
 ## Contact and Existing projects
 
