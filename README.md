@@ -122,7 +122,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 
 ![Working Principle](/docs/workshops/images/finalR/fsr.png)
 
-14. Connect the wires between the Arduino Mega and the nine Force Sensing Resistors. As the image illustrates:
+14. Connect the wires between the Arduino Mega and the nine Force Sensing Resistors as the image illustrates:
 
 ![Working Principle](/docs/workshops/images/finalR/arduinoPi.jpg)
 
@@ -136,9 +136,9 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 
 20. Connect the wires between the Adafruit Feather and the 3 DC Vibration Motors according to the image shown in step 19.
 21. Connect the Adafruit Feather and Powerbank using a Micro USB cable according to the image shown in step 19.
-22. Bluetooth connection settings You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop2.md#3-bluetooth-low-energy-ble-gatt-service)
-23. DCD connection settings (point 1.6) You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop1.md#2-data-centric-design-hub-per-group)
-24. Grafana connection settings (point 3.5) You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop1.md#2-data-centric-design-hub-per-group)
+22. Bluetooth connection settings. You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop2.md#3-bluetooth-low-energy-ble-gatt-service)
+23. DCD connection settings (point 1.6). You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop1.md#2-data-centric-design-hub-per-group)
+24. Grafana connection settings (point 3.5). You can find them [here.](https://github.com/datacentricdesign/wheelchair-design-platform/blob/master/docs/workshops/Workshop1.md#2-data-centric-design-hub-per-group)
 25. Find the Raspberry Pi on your network.
 26. Connect to the Raspberry Pi using ssh.
 27. Execute the code 3_predict_and_Actuate.py
