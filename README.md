@@ -58,13 +58,15 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 2. The nine FSR on the seat and backrest start sensing the posture.
 3. Arduino transmits the data to the Raspberry Pi
 4. Raspberry Pi transfers the data values to the DCD Hub (using a WiFi connection), which allows us to visualise and track the different postures in Grafana.
+
 ![Working Principle](/docs/workshops/images/finalR/PosturesAndGrafana.png)
+
 5. At the same time, the Raspberry Pi processes the data with a machine learning algorithm to predict the current position.
 6. The algorithm’s outcome is sent through Bluetooth to Adafruit Feather.
 7. The Adafruit Feather transmits a signal to the three actuators:
-  - Speaker to guide the user with instructions on how to do the postures.
-  - LED ring to show the current posture.
-  - Three vibration motors placed in both the seat and backrest to set the breathing rhythm during the whole session.
+   - Speaker to guide the user with instructions on how to do the postures.
+   - LED ring to show the current posture.
+   - Three vibration motors placed in both the seat and backrest to set the breathing rhythm during the whole session.
 
 ![Working Principle](/docs/workshops/images/finalR/SystemArch.png)
 
