@@ -82,26 +82,26 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
    - Read_Bluetooth_and_Actuate_FEATHER.ino
 2. Download and install the Libraries:
    - In Arduino
-    - SPI.h
-    - Adafruit_BLE.h
-    - Adafruit_BluefruitLE_SPI.h
-    - Adafruit_BluefruitLE_UART.h
-    - BluefruitConfig.h
-    - FastLED.h
-   In Python
-   - os
-   - serial
-   - time
-   - io
-   - math
-   - sklearn.neighbors
-   - sklearn.metrics
-   - sklearn.decomposition
-   - sklearn.preprocessing
-   - sklearn.feature_selection
-   - pandas
-   - numpy
-   - pickle
+      - SPI.h
+      - Adafruit_BLE.h
+      - Adafruit_BluefruitLE_SPI.h
+      - Adafruit_BluefruitLE_UART.h
+      - BluefruitConfig.h
+      - FastLED.h
+   - In Python
+      - os
+      - serial
+      - time
+      - io
+      - math
+      - sklearn.neighbors
+      - sklearn.metrics
+      - sklearn.decomposition
+      - sklearn.preprocessing
+      - sklearn.feature_selection
+      - pandas
+      - numpy
+      - pickle
 3. Upload Input_FSR_to_Serial_MEGA.ino to the Arduino Mega.
 4. Upload Read_Bluetooth_and_Actuate_FEATHER.ino to the Adafruit Feather.
 5. Upload to the Raspberry Pi:
@@ -114,7 +114,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 9. Attach Raspberry Pi to the wheelchair mainframe.
 10. Attach LED ring to the left armrest.
 11. Attach button to the right armrest.
-12. Attach one vibrator motor to the sit and two to the backrest of the wheelchair. As shown in the image.
+12. Attach one vibrator motor to the sit and two to the backrest of the wheelchair as shown in the image:
 
 ![Working Principle](/docs/workshops/images/finalR/vibrations.png)
 
@@ -130,7 +130,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 16. Connect the speaker to the Raspberry Pi according to the image shown in step 14.
 17. Connect the Arduino Mega and Raspberry Pi using the a USB B cable according to the image shown in step 14.
 18. Connect the Raspberry Pi and Powerbank using a MICRO USB cable according to the image shown in step 14.
-19. Connect the wires between the Feather and the LED ring according to the  image.
+19. Connect the wires between the Feather and the LED ring according to the image:
 
 ![Working Principle](/docs/workshops/images/finalR/featherC.jpg)
 
@@ -165,9 +165,9 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 
 To see a more detailed explanation of the location of the sensors and actuators, we provide you with a video and a poster.
 
-To see the video: https://youtu.be/LGbsHrdyxcA
+To see the video click [here.](https://youtu.be/LGbsHrdyxcA)
 
-![Working Principle](/docs/workshops/images/finalR/posterfinal.png)
+![Working Principle](/docs/workshops/images/finalR/posterfinal.jpg)
 _________________________________________________________________________________________________
 # Wheelchair Design Platform
 
