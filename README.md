@@ -2,13 +2,19 @@
 
 *A connected wheelchair to enable wheelchair users to exercise through a yoga guided session*.
 
-## Current situation
+### Current situation
 
 Sitting in a wheelchair during long periods might increase problems of posture, blood circulation, and stiffness in the users’ body. There are so many reasons why yoga can be considered as a therapy for this kind of users, not to mention that it brings together mind and body, increasing well being in general. With this concept, posture is improved through different exercises which can also be considered as healing to joints and muscles avoiding stiffness and increasing blood circulation for wheelchair users. Furthermore, it must be noted that this practice link exercises with respiration, which will not just increase flexibility but also lung capacity.
 
-## Concept description
+### Concept description
 
 This connected wheelchair guides the user through different yoga postures using nine FSR distributed along the seat and backrest; they sense the position of the user, this data is collected making possible a recognition of the different postures the user performs. This way the user will be provided by feedback depending on the prediction made by machine learning.
+
+### Flow of interaction of a yoga session with Yogi.Sense
+
+The user presses the button whenever she or he wants to start a yoga session. The voice of the instructor welcomes the user and explains the first part of the session, which is a respiration meditation guided by different vibration motors distributed along the seat and backrest. The speaker plays the voice of the instructor explaining the first posture and the corresponding image of the position lights up in the simulated screen composed by illustrations of the different poses and LEDs. Succeeding, the FSR sensors start sensing the data depending on how the user is sitting. If the posture is correct, the session continues with the next posture. When the user finishes doing the last pose, the speaker closes the session.
+
+![Working Principle](/docs/workshops/images/finalR/WorkingPrinciple.png)
 
 ---
 
