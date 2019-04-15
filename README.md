@@ -81,7 +81,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
    - 3_predict_and_Actuate.py
    - Read_Bluetooth_and_Actuate_FEATHER.ino
 2. Download and install the Libraries.
-To see how to install the libraries in Arduino click [here.](how to install arduino libraries in pr…)
+To see how to install the libraries in Arduino click [here.](https://www.arduino.cc/en/guide/libraries)
 To install dependencies in Python click [here.](https://datacentricdesign.github.io/wheelchair-design-platform/workshops/Workshop1)(point 3.1)
 To see how to install libraries in Python click [here.](https://datacentricdesign.github.io/wheelchair-design-platform/workshops/Workshop1) (point 5.4)
    - In Arduino
@@ -187,14 +187,13 @@ To see the video click [here.](https://youtu.be/LGbsHrdyxcA)
 ![Working Principle](/wheelchair3/docs/images/20190408_111807.jpg)
 
 _________________________________________________________________________________________________
-# Wheelchair Design Platform
+# Developing Connected Products and Services for the internet of Things
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
 addressing relevant challenges for wheelchair users. It is a collection of
 workshop materials, code examples and also a compilation of resources to foster
 a prospering research and design community around wheelchair users.
-
 
 ## Workshops
 
@@ -217,8 +216,6 @@ get started, you can find some additional resources
 [here are some tips and examples](/docs/resources/documentation.md "Documentation tips and examples").
 
 * [Git manipulation such as Pull Request](/docs/resources/git.md "Git manipulation").
-
-
 
 ## Contact and Existing projects
 
