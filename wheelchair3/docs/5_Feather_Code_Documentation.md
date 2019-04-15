@@ -9,7 +9,10 @@ Feather 32u4 has a Bluetooth Low Energy (BLE) communication capability. To commu
 > With this code the Feather will get the order from the Pi to indicate the next Yoga posture and use a Neopixel 16-Leds ring to output the corresponding posture. It also has 3 vibrator motors that start breathing when the first signal from the bluetooth is detected.
 
 ### Setting up the GATT Bluetooth Conexion
-```
+
+In the setup function we will write the following code:
+
+```javascript
     if ( !ble.begin(VERBOSE_MODE) ) {
         error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
       }
@@ -28,13 +31,15 @@ Feather 32u4 has a Bluetooth Low Energy (BLE) communication capability. To commu
 ### Add GATT Service and GATT characteristics
 
 We setup a GATT Service with the following command:
-```
+
+```javascript
     ble.sendCommandCheckOK( F("AT+GATTADDSERVICE=UUID=0x1234") );
 ```
 UUID means that it is a 16-bit Service, reserved for officially supported services. For custom Services we should use a 32-bit characteristic, defined by UUID128, however, in this case, it also worked with a 16-bit service.
 
 A service can contain many characteristics, each of them encapsulating a single data point. In our project we will use only one characteristic, defined as follows:
-```
+
+```javascript
     ble.sendCommandWithIntReply( F("AT+GATTADDCHAR=UUID128=02-11-88-33-44-55-66-77-88-99-AA-BB-CC-DD-EE-FF,PROPERTIES=0x08,MIN_LEN=1,MAX_LEN=6,DATATYPE=string,DESCRIPTION=string,VALUE=abc"), &charid_posture);
 ```
 This is a custom characteristic, so that is why it is defined as UUID128 and has 32 characters.
@@ -45,6 +50,9 @@ MIN_LEN and MAX_LEN are the min and max number of bytes to be sent. A character 
 
 VALUE is the default value sent when subscribing, in our case an empty string.
 
+To end the setup of the Bluefruit Feather, we reset it, disable command echo and print its information:
+
+```javascript
     ble.reset();
 
     // Disable command echo from Bluefruit
@@ -52,13 +60,14 @@ VALUE is the default value sent when subscribing, in our case an empty string.
 
     // Print Bluefruit information
     ble.info();
+```
 
 ### Callback API
 
 This code uses the Bluefruit callback API.
 
 In the setup() these functions have to be declared to install callback function for a specific event:
-```
+```javascript
     void setup(void) {
 
       ble.setConnectCallback(connected);
@@ -70,7 +79,7 @@ In the setup() these functions have to be declared to install callback function 
     }
 ```
 Furthermore, update() must be called inside loop() for callback to be executed:
-```
+```javascript
     void loop(void) {
 
       // Check every 200ms for new command receive from Bluetooth
@@ -78,7 +87,7 @@ Furthermore, update() must be called inside loop() for callback to be executed:
     }
 ```
 Then the function BleGattRX has to be defined:
-```
+```javascript
     void BleGattRX(int32_t chars_id, uint8_t data[], uint16_t len) {
 
       Serial.print( F("[BLE GATT RX] (" ) );
@@ -97,7 +106,7 @@ Then the function BleGattRX has to be defined:
 ### FastLed Functions
 
 We used FastLed library to control the 16-led Neopixel ring. To initialize the leds we use the following commands:
-```
+```javascript
     #include <FastLED.h>
 
     #define LED_PIN     5
@@ -131,7 +140,7 @@ We used FastLed library to control the 16-led Neopixel ring. To initialize the l
 A color palette is effectively an array of sixteen CRGB colors which fade through each other making in total 256 possible unique color points.
 
 You can manually define your own color palettes as we did with these piece of code:
-```
+```javascript
     void SetupBlinkingGreenAndBluePalette()
     {
         CRGB green = CHSV( 135, 255, 255);
@@ -147,7 +156,7 @@ You can manually define your own color palettes as we did with these piece of co
     }
 ```
 The function ColorFromPalette() defines the color of the led[i] to the corresponding colorIndex of the currentPalette.
-```
+```javascript
     leds[i] = ColorFromPalette( currentPalette, colorIndex, BRIGHTNESS, currentBlending);
 ```
 The colorIndex of a palette is a single byte integer that ranges as mention before between 0 and 255. When its value is a multiple of 16 it is representing one of the colors defined in the 4x4 CRGBPalette16 matrix. In the palette that we have defined previously the colorIndex 0 represents pure-green, 16 pure-blue, and 8 an even mixture between green and blue. ColorIndex 32 is pure-black, as well as colorIndex 48.
@@ -161,7 +170,7 @@ To make sure that the variable colorIndex loops between the values 0 to 255, in 
 ### FastLed Show
 
 To be able to visualize the changes of color on the led string, it is necessary to use the function FastLED.show(). In our sketch, we use it on the loop() function followed by FastLED.delay(), which sets the speed of the color visualization. FastLED.delay() is not a regular delay, and won't stop the code from running, it will only delay the FastLED.show() function.
-```
+```javascript
     FastLED.show();
     FastLED.delay(1000 / UPDATES_PER_SECOND);
 ```
@@ -170,7 +179,7 @@ To be able to visualize the changes of color on the led string, it is necessary 
 We will use a switch loop with the variable 'posture', turning on only the leds required for each of the postures.
 
 Before the switch loop we turn of all the other leds, that dont correspond to the current posture with:
-```
+```javascript
     fadeToBlackBy( leds, NUM_LEDS, 255);
 ```
 ### Setting the vibration rhythm
@@ -180,7 +189,7 @@ We wanted to control the vibration motors in a way that they resemble the breath
 The function setVibration() is the responsible for this task. It uses the colorIndex  (an 8-bit integer that loops from 0 to 255) as the base value that will be constrained to achieve the desired vibrationValue.
 
 It is a quite complex way to make it because it the idea has been taken from an earlier version of the code, were the leds and vibration motors were synchronized in a breathing pattern. The idea here is to make two vibration cycles inside each palette cycle: So when the colorIndex is between 0 and 127 is one vibration cycle and when the colorIndex is between 128 and 255 is the second vibration cycle. Besides, when the value of the vibration is lower than 128 the vibration is almost unnoticeable so the vibrationValue has been constrained between 128 and 254.
-```
+```javascript
     void setVibration( uint8_t colorIndex)
     {  
         if(colorIndex>128){
