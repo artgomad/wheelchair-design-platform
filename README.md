@@ -80,7 +80,10 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
    - 2_train_and_test.py
    - 3_predict_and_Actuate.py
    - Read_Bluetooth_and_Actuate_FEATHER.ino
-2. Download and install the Libraries:
+2. Download and install the Libraries.
+To see how to install the libraries in Arduino click [here.](how to install arduino libraries in pr…)
+To install dependencies in Python click [here.](https://datacentricdesign.github.io/wheelchair-design-platform/workshops/Workshop1)(point 3.1)
+To see how to install libraries in Python click [here.](https://datacentricdesign.github.io/wheelchair-design-platform/workshops/Workshop1) (point 5.4)
    - In Arduino
       - SPI.h
       - Adafruit_BLE.h
@@ -94,11 +97,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
       - time
       - io
       - math
-      - sklearn.neighbors
-      - sklearn.metrics
-      - sklearn.decomposition
-      - sklearn.preprocessing
-      - sklearn.feature_selection
+      - sklearn
       - pandas
       - numpy
       - pickle
