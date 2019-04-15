@@ -14,7 +14,7 @@ This connected wheelchair guides the user through different yoga postures using 
 
 The user presses the button whenever she or he wants to start a yoga session. The voice of the instructor welcomes the user and explains the first part of the session, which is a respiration meditation guided by different vibration motors distributed along the seat and backrest. The speaker plays the voice of the instructor explaining the first posture and the corresponding image of the position lights up in the simulated screen composed by illustrations of the different poses and LEDs. Succeeding, the FSR sensors start sensing the data depending on how the user is sitting. If the posture is correct, the session continues with the next posture. When the user finishes doing the last pose, the speaker closes the session.
 
-![Working Principle](/docs/workshops/images/finalR/WorkingPrinciple.png)
+![Working Principle](/wheelchair3/docs/images/WorkingPrinciple.png)
 
 ---
 
@@ -59,7 +59,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
 3. Arduino transmits the data to the Raspberry Pi
 4. Raspberry Pi transfers the data values to the DCD Hub (using a WiFi connection), which allows us to visualise and track the different postures in Grafana. (Each of the lines in the first chart represents an FSR value)
 
-![Working Principle](/docs/workshops/images/finalR/PosturesAndGrafana.png)
+![Working Principle](/wheelchair3/docs/images/PosturesAndGrafana.png)
 
 5. At the same time, the Raspberry Pi processes the data with a machine learning algorithm to predict the current position.
 6. The algorithm’s outcome is sent through Bluetooth to Adafruit Feather.
@@ -68,7 +68,7 @@ It’s attached to the wheelchair mainframe, and it is connected to: Arduino MEG
    - LED ring to show the current posture.
    - Three vibration motors placed in both the seat and backrest to set the breathing rhythm during the whole session.
 
-![Working Principle](/docs/workshops/images/finalR/SystemArch.png)
+![Working Principle](/wheelchair3/docs/images/SystemArch.png)
 
 ---
 
@@ -115,15 +115,15 @@ To see how to install libraries in Python click [here.](https://datacentricdesig
 11. Attach button to the right armrest.
 12. Attach one vibrator motor to the sit and two to the backrest of the wheelchair as shown in the image:
 
-![Working Principle](/docs/workshops/images/finalR/vibrations.png)
+![Working Principle](/wheelchair3/docs/images/vibrations.png)
 
 13. Attach the FSR to the wheelchair as it is shown in the image:
 
-![Working Principle](/docs/workshops/images/finalR/fsr.png)
+![Working Principle](/wheelchair3/docs/images/fsr.png)
 
 14. Connect the wires between the Arduino Mega and the nine Force Sensing Resistors as the image illustrates:
 
-![Working Principle](/docs/workshops/images/finalR/arduinoPi.jpg)
+![Working Principle](/wheelchair3/docs/images/arduinoPi.jpg)
 
 15. Connect the wires between the Arduino Mega and the button according to the image shown in step 14.
 16. Connect the speaker to the Raspberry Pi according to the image shown in step 14.
@@ -131,7 +131,7 @@ To see how to install libraries in Python click [here.](https://datacentricdesig
 18. Connect the Raspberry Pi and Powerbank using a MICRO USB cable according to the image shown in step 14.
 19. Connect the wires between the Feather and the LED ring according to the image:
 
-![Working Principle](/docs/workshops/images/finalR/featherC.jpg)
+![Working Principle](/wheelchair3/docs/images/featherC.jpg)
 
 20. Connect the wires between the Adafruit Feather and the 3 DC Vibration Motors according to the image shown in step 19.
 21. Connect the Adafruit Feather and Powerbank using a Micro USB cable according to the image shown in step 19.
@@ -166,34 +166,36 @@ To see a more detailed explanation of the location of the sensors and actuators,
 
 To see the video click [here.](https://youtu.be/LGbsHrdyxcA)
 
-![Working Principle](/docs/workshops/images/finalR/posterfinal.jpg)
+![Working Principle](/wheelchair3/docs/images/posterfinal.jpg)
 
 ---
 
 ## Exhibition pictures
 
-![Working Principle](/docs/workshops/images/finalR/20190408_095746.jpg)
+![Working Principle](/wheelchair3/docs/images/20190408_095746.jpg)
 
-![Working Principle](/docs/workshops/images/finalR/20190408_095825.jpg)
+![Working Principle](/wheelchair3/docs/images/20190408_095825.jpg)
 
-![Working Principle](/docs/workshops/images/finalR/20190408_095846.jpg)
+![Working Principle](/wheelchair3/docs/images/20190408_095846.jpg)
 
-![Working Principle](/docs/workshops/images/finalR/20190408_105127.jpg)
+![Working Principle](/wheelchair3/docs/images/20190408_105127.jpg)
 
-![Working Principle](/docs/workshops/images/finalR/20190408_105216.jpg)
+![Working Principle](/wheelchair3/docs/images/20190408_105216.jpg)
 
-![Working Principle](/docs/workshops/images/finalR/20190408_110552.jpg)
+![Working Principle](/wheelchair3/docs/images/20190408_110552.jpg)
 
-![Working Principle](/docs/workshops/images/finalR/20190408_111807.jpg)
+![Working Principle](/wheelchair3/docs/images/20190408_111807.jpg)
 
 _________________________________________________________________________________________________
-# Developing Connected Products and Services for the internet of Things
+# Wheelchair Design Platform
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
 addressing relevant challenges for wheelchair users. It is a collection of
 workshop materials, code examples and also a compilation of resources to foster
 a prospering research and design community around wheelchair users.
+
+
 
 ## Workshops
 
@@ -217,7 +219,55 @@ get started, you can find some additional resources
 
 * [Git manipulation such as Pull Request](/docs/resources/git.md "Git manipulation").
 
-## Related projects from other students
+## Main Components
+
+__**Disclaimer:**__ the design of this platform focuses on flexibility and
+technology exploration rather than optimisation.
+
+The main design includes a Raspberry Pi 3 and an Arduino Mega 2560 on the wheelchair frame.
+
+The Arduino Mega is the micro-controller of the platform. Fixed on the main frame of the wheelchair,
+it can collect data from sensors (e.g. force sensors, accelerometers), and trigger actions from actuators
+(e.g. LEDs, vibration motors).
+
+More on the Arduino Mega can be found [here](/docs/resources/arduino.md "Arduino resources").
+
+Raspberry Pi is a small computer. It is also fixed to the main frame of the wheelchair,
+where it can:
+* interact with the Arduino Mega via USB to receive data and transmit commands;
+* interact with the Internet to transmit commands and receive data;
+* store data locally in files;
+* run (machine learning) algorithms.
+
+More on the Raspberry Pi can be found [here](/docs/resources/raspberrypi.md "Raspberry Pi resources").
+
+These components fit together as shown on the following diagram. A large powerbank
+powers the Raspberry Pi. The Arduino Mega communicates and receives power from the
+Raspberry Pi via USB. A Feather (Arduino-like development board) on the wheel connects to
+the Raspberry Pi via Bluetooth to sense and actuate from the wheel.
+
+![Main Wheelchair components](/docs/workshops/images/wheechair-components.png)
+
+## List of suggested components:
+
+On the frame:
+
+* 1 Raspberry Pi 3B;
+* 1 SD card (Some come directly with NOOBS installed);
+* 1 Arduino Mega;
+* 1 Large power bank;
+* 1 large breadboard;
+* 1 USB cable A/micro (Powerbank to Raspberry Pi);
+* 1 USB cable A/B (Raspberry Pi to Arduino Mega).
+
+On the wheel:
+
+* 1 Feather (Bluetooth enabled);
+* 1 small power bank;
+* 1 small breadboard;
+* 1 USB cable A/B (power bank to Arduino Uno).
+
+## Contact and Existing projects
 
 * [The hiking wheelchair](https://github.com/cprecioso/wheelchair-design-platform)
 * [The EDU wheelchair](https://github.com/ctsai-1/wheelchair-design-platform)
