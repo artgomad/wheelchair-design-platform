@@ -1,6 +1,6 @@
 ## Adafruit Feather 32u4
 
-**Code Name:** Read_Bluetooth_and_Actuate.ino
+**Code Name:** Read_Bluetooth_and_Actuate_FEATHER.ino
 
 The code runs on the Feather 32u4, an Arduino-like, Bluetooth enabled board by AdaFruit. Have a look at the documentation we compiled to get an overview of its capabilities and set up your Arduino IDE: [Feather 32u4](https://datacentricdesign.github.io/wheelchair-design-platform/resources/feather.html)
 
