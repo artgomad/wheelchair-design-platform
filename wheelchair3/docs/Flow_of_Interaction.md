@@ -21,4 +21,6 @@ The user presses the button whenever she or he wants to start a yoga session. Th
    - LED ring to show the current posture.
    - Three vibration motors placed in both the seat and backrest to set the breathing rhythm during the whole session.
 
+---
+
 ![Working Principle](/wheelchair3/docs/images/WorkingPrinciple.png)
