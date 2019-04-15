@@ -4,6 +4,7 @@
 
 
 * [Exhibition pictures](/wheelchair3/docs/images/Exhibition_pictures.md)
+* [Sensors and actuators](/wheelchair3/docs/System_Architecture.md)
 
 ### Current situation
 
