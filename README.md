@@ -12,7 +12,7 @@ Sitting in a wheelchair during long periods might increase problems of posture, 
 ## Table of contents
 
 * [System architecture](/wheelchair3/docs/System_Architecture.md)
-* [Flow of interaction](/wheelchair3/docs/Flow_of_Interaction.md)
+* [Working principle](/wheelchair3/docs/Flow_of_Interaction.md)
 * [Step by step instructions. Setting up hardware and libraries](/wheelchair3/docs/Step_by_step_Instructions.md)
 * [Exhibition pictures](/wheelchair3/docs/Exhibition_pictures.md)
 * [Workshops and projects from other groups](/wheelchair3/docs/Workshops_and_Other_Projects.md)

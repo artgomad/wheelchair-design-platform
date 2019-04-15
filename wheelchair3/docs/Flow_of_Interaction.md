@@ -1,11 +1,8 @@
+# Working Principle
+
 ### Flow of interaction of a yoga session with Yogi.Sense
 
 The user presses the button whenever she or he wants to start a yoga session. The voice of the instructor welcomes the user and explains the first part of the session, which is a respiration meditation guided by different vibration motors distributed along the seat and backrest. The speaker plays the voice of the instructor explaining the first posture and the corresponding image of the position lights up in the simulated screen composed by illustrations of the different poses and LEDs. Succeeding, the FSR sensors start sensing the data depending on how the user is sitting. If the posture is correct, the session continues with the next posture. When the user finishes doing the last pose, the speaker closes the session.
-
-![Working Principle](/wheelchair3/docs/images/WorkingPrinciple.png)
-
----
-
 
 
 ### Flow of data
@@ -23,3 +20,5 @@ The user presses the button whenever she or he wants to start a yoga session. Th
    - Speaker to guide the user with instructions on how to do the postures.
    - LED ring to show the current posture.
    - Three vibration motors placed in both the seat and backrest to set the breathing rhythm during the whole session.
+
+![Working Principle](/wheelchair3/docs/images/WorkingPrinciple.png)
