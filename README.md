@@ -2,6 +2,8 @@
 
 *A connected wheelchair to enable wheelchair users to exercise through a yoga guided session*.
 
+
+* [Exhibition pictures](/wheelchair3/docs/images/Exhibition_pictures.md)
 ### Current situation
 
 Sitting in a wheelchair during long periods might increase problems of posture, blood circulation, and stiffness in the users’ body. There are so many reasons why yoga can be considered as a therapy for this kind of users, not to mention that it brings together mind and body, increasing well being in general. With this concept, posture is improved through different exercises which can also be considered as healing to joints and muscles avoiding stiffness and increasing blood circulation for wheelchair users. Furthermore, it must be noted that this practice link exercises with respiration, which will not just increase flexibility but also lung capacity.
@@ -168,23 +170,6 @@ To see the video click [here.](https://youtu.be/LGbsHrdyxcA)
 
 ![Working Principle](/wheelchair3/docs/images/posterfinal.jpg)
 
----
-
-## Exhibition pictures
-
-![Working Principle](/wheelchair3/docs/images/20190408_095746.jpg)
-
-![Working Principle](/wheelchair3/docs/images/20190408_095825.jpg)
-
-![Working Principle](/wheelchair3/docs/images/20190408_095846.jpg)
-
-![Working Principle](/wheelchair3/docs/images/20190408_105127.jpg)
-
-![Working Principle](/wheelchair3/docs/images/20190408_105216.jpg)
-
-![Working Principle](/wheelchair3/docs/images/20190408_110552.jpg)
-
-![Working Principle](/wheelchair3/docs/images/20190408_111807.jpg)
 
 _________________________________________________________________________________________________
 # Developing Connected Products and Services for the internet of Things
