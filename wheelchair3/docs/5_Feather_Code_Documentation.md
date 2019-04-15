@@ -6,11 +6,10 @@ The code runs on the Feather 32u4, an Arduino-like, Bluetooth enabled board by A
 
 Feather 32u4 has a Bluetooth Low Energy (BLE) communication capability. To communicate over BLE, we choose the GATT specification (standing for Generic ATTribute Profile). It is implemented by most Bluetooth consumer product and will enable our prototype to easily fit in its technology landscape.
 
-_** With this code the Feather will get the order from the Pi to indicate the next Yoga posture and use a Neopixel 16-Leds ring to output the corresponding posture. It also has 3 vibrator motors that start breathing when the first signal from the bluetooth is detected.**_
+_**With this code the Feather will get the order from the Pi to indicate the next Yoga posture and use a Neopixel 16-Leds ring to output the corresponding posture. It also has 3 vibrator motors that start breathing when the first signal from the bluetooth is detected.**_
 
 ![Working Principle](/wheelchair3/docs/images/featherC.jpg)
 
----
 
 It performs the following tasks:
 
